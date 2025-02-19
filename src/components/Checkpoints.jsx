@@ -7,27 +7,27 @@ const checkpoints = [
     id: 1,
     title: "Checkpoint 1",
     doors: [
-      { id: 1, question: "What is 2 + 2?", answer: "4", isCorrect: true },
-      { id: 2, question: "What is 5 + 3?", answer: "8", isCorrect: false },
-      { id: 3, question: "What is 10 - 7?", answer: "3", isCorrect: false },
+      { id: 1, question: "If there are four apples and you take away three of them, how many apples do you have?", answer: "3", isCorrect: true },
+      { id: 2, question: " How can you get 720 by using six zeros and any mathematical operator?", answer: "!", isCorrect: false },
+      { id: 3, question: "If Reema is the 50th fastest and 50th slowest runner in her school. How many students are there in the school?", answer: "99", isCorrect: false },
     ],
   },
   {
     id: 2,
     title: "Checkpoint 2",
     doors: [
-      { id: 4, question: "What is the capital of France?", answer: "Paris", isCorrect: false },
-      { id: 5, question: "What is 6 * 6?", answer: "36", isCorrect: false },
-      { id: 6, question: "What is 15 / 3?", answer: "5", isCorrect: true },
+      { id: 4, question: "I am a three-digit number. My second-digit is four times bigger than the third digit and my first digit is three less than the second digit. What number am I?", answer: "141", isCorrect: false },
+      { id: 5, question: "How do you go from 98 to 720 using just one letter?", answer: "x", isCorrect: false },
+      { id: 6, question: "How many times can you subtract five from twenty-five?", answer: "1", isCorrect: true },
     ],
   },
   {
     id: 3,
     title: "Checkpoint 3",
     doors: [
-      { id: 7, question: "What is the color of the sky?", answer: "Blue", isCorrect: false },
-      { id: 8, question: "What is 12 + 4?", answer: "16", isCorrect: true },
-      { id: 9, question: "What is 9 - 3?", answer: "6", isCorrect: false },
+      { id: 7, question: "What can you put between 7 and 8 to get a result bigger than 7, but not quite as high as 8?", answer: ".", isCorrect: false },
+      { id: 8, question: "There are seven people at a party. They meet each other and each of them shakes hands only once with each of the others. How many handshakes will be there in total?", answer: "21", isCorrect: true },
+      { id: 9, question: " Find the next number in the series 7645, 5764, 4576, ..........", answer: "6457", isCorrect: false },
     ],
   },
 ];
