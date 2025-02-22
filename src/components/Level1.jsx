@@ -2,12 +2,41 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { IoBulbOutline } from "react-icons/io5";
-const crosswordGrid = [
+const crosswordGrid1 = [
   [{ num: 1, direction: [{ dir: "right", len: 5, answer: "DEBUG" }, { dir: "down", len: 5, answer: "DELTA" }], filled: false }, { num: 5, direction: [{ dir: "down", len: 5, answer: "EXPEL" }], filled: false }, { filled: false }, { num: 6, direction: [{ dir: "down", len: 5, answer: "UTTER" }], filled: false }, { filled: false }],
   [{ num: 2, direction: [{ dir: "right", len: 4, answer: "EXIT" }], filled: false }, { filled: false }, { filled: false }, { filled: false }, { filled: true }],
   [{ filled: false }, { filled: false }, { filled: true }, { filled: false }, { filled: true }],
   [{ num: 3, direction: [{ dir: "right", len: 5, answer: "TENES" }], filled: false }, { filled: false }, { filled: false }, { filled: false }, { filled: false }],
   [{ num: 4, direction: [{ dir: "right", len: 5, answer: "ALARM" }], filled: false }, { filled: false }, { filled: false }, { filled: false }, { filled: false }]
+];
+const crossGrid2=[
+  [{ num: 1, direction: [{ dir: "right", len: 4, answer: "ABCD" }], filled: false }, { num: 2, direction: [{ dir: "down", len: 5, answer: "BEFGH" }], filled: false }, {num: 3, direction: [{ dir: "down", len: 5, answer: "CKNST" }], filled: false}, { num: 5, direction: [{ dir: "down", len: 3, answer: "DLO" }], filled: false },{filled:true}],
+  [{ filled: true },{filled: false }, { filled: false }, { filled: false }, {num: 6, direction: [{ dir: "down", len: 4, answer: "MPQR" }], filled: false }],
+  [{num: 4, direction: [{ dir: "right", len: 5, answer: "HFNOP" },{ dir: "down", len: 3, answer: "HIJ" }],filled: false }, { filled: false }, { filled: false}, { filled: false }, { filled: false }],
+  [{filled: false }, { filled: false }, { filled: false }, { filled: true }, { filled: false }],
+  [{ num: 5, direction: [{ dir: "right", len: 5, answer: "JHTUR" }], filled: false }, { filled: false }, { filled: false }, { filled: false }, { filled: false }]
+
+];
+const crossGrid3=[
+  [{ num: 1, direction: [{ dir: "right", len: 5, answer: "ABCDE" }], filled: false }, { num: 4, direction: [{ dir: "down", len: 5, answer: "BGLPQ" }], filled: false }, {num: 5, direction: [{ dir: "down", len: 4, answer: "CHMR" }], filled: false}, { num: 6, direction: [{ dir: "down", len: 5, answer: "DINST" }], filled: false },{num: 7, direction: [{ dir: "down", len: 5, answer: "EJOUV" }], filled: false }],
+  [{num: 2, direction: [{ dir: "right", len: 5, answer: "FGHIJ" }], filled: false  },{filled: false }, { filled: false }, { filled: false }, { filled: false }],
+  [{num: 3, direction: [{ dir: "right", len: 5, answer: "KLMNO" }],filled: false }, { filled: false }, { filled: false}, { filled: false }, { filled: false }],
+  [{filled: true }, { filled: false }, { filled: false }, { filled: false}, { filled: false }],
+  [{filled: true }, { filled: false }, { filled: true }, { filled: false }, { filled: false }]
+];
+const crossGrid4=[
+  [{  filled: true }, { num: 1, direction: [{ dir: "right", len: 4, answer: "ABCD" }], filled: false }, { filled: false}, { filled: false },{filled: false }],
+  [{num: 2, direction: [{ dir: "right", len: 5, answer: "EFGHI" }], filled: false  },{filled:false},{ num: 5, direction: [{ dir: "down", len: 4, answer: "GKPT" }], filled: false }, { filled: false }, { filled: false }],
+  [{filled: true },{num: 6, direction: [{ dir: "right", len: 4, answer: "JKLM" }],filled: false }, { filled: false }, { filled: false}, { filled: false }],
+  [{ num: 3, direction: [{ dir: "right", len: 4, answer: "NOPQ" }], filled: false }, { filled: false }, { filled: false}, { filled: false },{filled: true }],
+  [{ num: 4, direction: [{ dir: "right", len: 5, answer: "RSTUV" }], filled: false },{ filled: false }, { filled: false }, { filled: false }, { filled: false }]
+];
+const crossGrid5=[
+  [{ num: 1, direction: [{ dir: "down", len: 5, answer: "AEJNR" }], filled: false }, { filled: true }, {num: 2, direction: [{ dir: "right", len: 3, answer: "BCD" }], filled: false}, { num: 5, direction: [{ dir: "down", len: 5, answer: "CHLPU" }], filled: false },{num: 6, direction: [{ dir: "down", len: 5, answer: "DIMQV" }], filled: false }],
+  [{num: 3, direction: [{ dir: "right", len: 5, answer: "EFGHI" }], filled: false  },{num: 4, direction: [{ dir: "right", len: 4, answer: "FGHI" },{ dir: "down", len: 4, answer: "FKOS" }], filled: false  }, { filled: false }, { filled: false }, { filled: false }],
+  [{filled: false }, { filled: false }, { filled: true}, { filled: false }, { filled: false }],
+  [{filled: false }, { filled: false }, { filled: true }, { filled: false}, { filled: false }],
+  [{num: 7, direction: [{ dir: "right", len: 5, answer: "RSTUV" }],filled: false}, { filled: false }, { filled: false }, { filled: false }, { filled: false }]
 ];
 // const questions = {
 //   "1R": "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
