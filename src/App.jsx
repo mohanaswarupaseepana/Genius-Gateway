@@ -10,7 +10,7 @@ const App = () => {
         <Route path="/level1" element={<Level1 />} />
         <Route path="/checkpoints" element={<Checkpoints />} />
       </Routes>
-      <Login />
+      {/* <Login /> */}
       {/* <Level1/> */}
       {/* <Checkpoints/> */}
     </Router>
