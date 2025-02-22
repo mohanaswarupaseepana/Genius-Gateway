@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { IoBulbOutline } from "react-icons/io5";
+import { FaHandsClapping } from "react-icons/fa6";
 const crosswordGrid = [
   [{ num: 1, direction: [{ dir: "right", len: 5, answer: "DEBUG" }, { dir: "down", len: 5, answer: "DELTA" }], filled: false }, { num: 5, direction: [{ dir: "down", len: 5, answer: "EXPEL" }], filled: false }, { filled: false }, { num: 6, direction: [{ dir: "down", len: 5, answer: "UTTER" }], filled: false }, { filled: false }],
   [{ num: 2, direction: [{ dir: "right", len: 4, answer: "EXIT" }], filled: false }, { filled: false }, { filled: false }, { filled: false }, { filled: true }],
@@ -94,6 +95,8 @@ const Level1 = () => {
   const [currentIndex, setcurrentIndex] = useState(0);
   const [forceRender, setForceRender] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [correct, showCorrectMessage] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
   const location = useLocation();
   const { email } = location.state || {};
   // State to track the answers entered by the user
@@ -184,10 +187,11 @@ const Level1 = () => {
 
       row.forEach((cell, colIndex) => {
         let j = colIndex;
+        let flag = false;
 
         if (cell.num) {
           // console.log(cell.num, cell.direction);
-          let flag = false;
+          
 
           cell.direction.forEach((dir) => {
             if (dir.dir === "right") {
@@ -204,12 +208,20 @@ const Level1 = () => {
               console.log(`flag ${i} ${j} ${flag}`);
               if (flag) {
                 // console.log(`flag true ${i} ${j}`);
+                let complete=false;
                 for (let k = 0; k < dir.len; k++) {
                   // console.log(`flag green true ${i} ${j + k}`);
+                  if(crosswordGrid[i][j + k].filled===false) complete=true;
                   crosswordGrid[i][j + k].filled = true;
 
                 }
+                if(complete){
                 setForceRender((prev) => prev + 1);
+                showCorrectMessage(true);
+                setTimeout(() => {
+                  showCorrectMessage(false);
+              }, 3000);
+            }
 
               }
             }
@@ -228,11 +240,20 @@ const Level1 = () => {
               // console.log(`flag ${i} ${j} ${flag}`);
               if (flag) {
                 // console.log(`flag true ${i} ${j}`);
+                let complete=false;
                 for (let k = 0; k < dir.len; k++) {
                   // console.log(`flag green true ${i} ${j + k}`);
+                  if(crosswordGrid[i + k][j].filled===false) complete=true;
                   crosswordGrid[i + k][j].filled = true;
-                  setForceRender((prev) => prev + 1);
+                  // setForceRender((prev) => prev + 1);
                 }
+                if(complete){
+                  setForceRender((prev) => prev + 1);
+                  showCorrectMessage(true);
+                  setTimeout(() => {
+                    showCorrectMessage(false);
+                }, 3000);
+              }
               }
             }
           });
@@ -293,7 +314,7 @@ const Level1 = () => {
     }
 
   }, [userInput]);
-  const targetTime = "2025-02-22T12:30:00";
+  const targetTime = "2025-02-22T16:15:00";
   const calculateTimeLeft = () => {
     const now = new Date().getTime(); // Current timestamp
     const target = new Date(targetTime).getTime(); // Target timestamp
@@ -337,13 +358,19 @@ const Level1 = () => {
           <p className="text-4xl font-bold text-green-400 w-1/4 flex justify-end">{formatTime(timeLeft)}</p>
         </div>
         {/* Flex container for grid and questions */}
-        <div className="border border-white space-x-10 backdrop-blur-sm flex w-full h-[600px] justify-evenly ">
+        <div className=" space-x-10 backdrop-blur-sm flex w-full h-[600px] justify-evenly ">
           {/* Crossword Grid */}
-          <div className="border border-white w-1/2 flex flex-col justify-center items-center">
+
+          <div className=" w-1/2 flex flex-col justify-center items-center">
             {/* <p className="text-white">Team Name: </p> */}
-            <div className="border transform  bg-green-500 text-white ">
-              <p>✅Hello THis is prem</p>
-              <div className="w-full bg-white h-1 mt-2 relative overflow-hidden">
+            <div className="h-16">
+            {correct && <div className=" mb-5 opacity-0 translate-y-5  bg-green-400 text-white "
+              style={{
+                animation: "fadeInUp 2s ease-out, fadeOut 3s ease-out",
+              }}
+            >
+              <p className="flex justify-center items-center p-2 gap-3 text-lg"><FaHandsClapping />Wow....! That was correct</p>
+              {/* <div className="w-full bg-white h-1 mt-1 relative overflow-hidden">
                 <div
                   className="h-full bg-green-300"
                   style={{
@@ -352,16 +379,18 @@ const Level1 = () => {
                       "progress-bar 3s linear forwards",
                   }}
                 ></div>
-              </div>
+              </div> */}
               <style>{`
         @keyframes progress-bar {
           from { width: 0%; }
           to { width: 100%; }
         }
       `}</style>
+            </div>}
             </div>
 
-            <div className="border border-white grid grid-cols-5 p-4 w-[420px] h-[420px] ">
+
+            <div className=" grid grid-cols-5 p-4 w-[420px] h-[420px] ">
 
               {crosswordGrid.map((row, rowIndex) =>
                 row.map((cell, colIndex) => (
@@ -410,8 +439,8 @@ const Level1 = () => {
                   <div className="flex justify-center my-3 ">
                     {questions[currentIndex + 1].down && questions[currentIndex + 1].right && (
                       <div className="flex gap-3 justify-around w-2/3  rounded-xl ">
-                        <button className={` cursor-pointer border-2 w-1/2 py-3  rounded-xl ${direction === 0 ? "bg-blue-700 " : ""}`} onClick={() => setDirection(0)}>Direction 1</button>
-                        <button className={`cursor-pointer border-2 w-1/2 py-3  rounded-xl ${direction === 1 ? "bg-blue-700 " : ""}`} onClick={() => setDirection(1)}>Direction 2</button>
+                        <button className={` cursor-pointer border-gray-300 border-2 w-1/2 py-3  rounded-xl ${direction === 0 ? "bg-blue-700 " : ""}`} onClick={() => setDirection(0)}>Direction 1</button>
+                        <button className={`cursor-pointer border-gray-300 border-2 w-1/2 py-3  rounded-xl ${direction === 1 ? "bg-blue-700 " : ""}`} onClick={() => setDirection(1)}>Direction 2</button>
 
                       </div>
                     )}
@@ -476,6 +505,11 @@ const Level1 = () => {
                 </button>
               ))}
             </div>
+          </div>
+          <div className="absolute h-[600px] w-[1000px] rounded-2xl bg-white p-10">
+            <p className="text-7xl text-green-500 font-bold">Congratulations....! <br/>You have completed the first level in Genius Gateway</p>
+            <p className="text-7xl text-green-500 font-bold">Your Currect Points: {user.Points}</p>
+            
           </div>
 
           {/* Navigation Buttons */}
