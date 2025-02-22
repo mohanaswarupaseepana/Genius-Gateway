@@ -12,6 +12,7 @@ const App = () => {
         <Route path="/checkpoints" element={<Checkpoints />} />
         <Route path="/leaderboard" element={<Leaderboard_level1 />} />
       </Routes>
+      {/* <Login /> */}
       
       {/* <Level1/> */}
       {/* <Checkpoints/> */}
