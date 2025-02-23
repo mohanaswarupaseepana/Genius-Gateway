@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { IoBulbOutline } from "react-icons/io5";
 import { FaHandsClapping } from "react-icons/fa6";
-const crosswordGrid1 = [
+const crosswordGrid = [
   [{ num: 1, direction: [{ dir: "right", len: 5, answer: "DEBUG" }, { dir: "down", len: 5, answer: "DELTA" }], filled: false }, { num: 5, direction: [{ dir: "down", len: 5, answer: "EXPEL" }], filled: false }, { filled: false }, { num: 6, direction: [{ dir: "down", len: 5, answer: "UTTER" }], filled: false }, { filled: false }],
   [{ num: 2, direction: [{ dir: "right", len: 4, answer: "EXIT" }], filled: false }, { filled: false }, { filled: false }, { filled: false }, { filled: true }],
   [{ filled: false }, { filled: false }, { filled: true }, { filled: false }, { filled: true }],
@@ -535,11 +535,13 @@ const Level1 = () => {
               ))}
             </div>
           </div>
-          <div className="absolute h-[600px] w-[1000px] rounded-2xl bg-white p-10">
-            <p className="text-7xl text-green-500 font-bold">Congratulations....! <br/>You have completed the first level in Genius Gateway</p>
-            <p className="text-7xl text-green-500 font-bold">Your Currect Points: {user.Points}</p>
-            
+          <div className= "fixed inset-0 flex justify-center items-center backdrop-blur-sm bg-black/30">
+            <div className="h-[300px] w-[800px] rounded-2xl bg-white/70 p-10 flex flex-col items-center shadow-lg">
+               <p className="text-3xl text-green-600 font-bold mb-4 animate-pulse">Congratulations....! <br />You have completed the first level in Genius Gateway</p>
+               <p className="text-2xl text-blue-600 font-bold animate-pulse">Your Current Points: {user.Points}</p>
+           </div>
           </div>
+
 
           {/* Navigation Buttons */}
 
