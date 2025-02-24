@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { IoBulbOutline } from "react-icons/io5";
 import { FaHandsClapping } from "react-icons/fa6";
-const crosswordGrid = [
+const crossGrid1 = [
   [{ num: 1, direction: [{ dir: "right", len: 5, answer: "DEBUG" }, { dir: "down", len: 5, answer: "DELTA" }], filled: false }, { num: 5, direction: [{ dir: "down", len: 5, answer: "EXPEL" }], filled: false }, { filled: false }, { num: 6, direction: [{ dir: "down", len: 5, answer: "UTTER" }], filled: false }, { filled: false }],
   [{ num: 2, direction: [{ dir: "right", len: 4, answer: "EXIT" }], filled: false }, { filled: false }, { filled: false }, { filled: false }, { filled: true }],
   [{ filled: false }, { filled: false }, { filled: true }, { filled: false }, { filled: true }],
@@ -39,16 +39,271 @@ const crossGrid5=[
   [{filled: false }, { filled: false }, { filled: true }, { filled: false}, { filled: false }],
   [{num: 7, direction: [{ dir: "right", len: 5, answer: "RSTUV" }],filled: false}, { filled: false }, { filled: false }, { filled: false }, { filled: false }]
 ];
-// const questions = {
-//   "1R": "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
-//   "1B": "In computer science and mathematics, which term is used to represent the difference or change in a variable, often appearing in equations or algorithms to calculate differences between values?",
-//   "2R": "In programming, I can be called with a status code to terminate execution, and in some cases, I clean up resources before doing so. In shell scripts, I signify the end of a process. What am I?",
-//   "3R": "Which communication system, once widely used for sending written messages over long distances, relied on teleprinters and was commonly used by businesses before the advent of fax and email?",
-//   "4R": "In operating systems, I can be set to send a signal after a specified time interval, often used to interrupt sleeping processes or enforce timeouts. What am I?",
-//   "5B": "What word describes the action of forcefully removing an unauthorized user from a system or network?",
-//   "6B": "What word means to express something verbally, and can also relate to speech synthesis in AI and voice assistants?"
-// };
-const questions = {
+const questions1 = {
+  1: {
+    right: {
+      text: "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
+      hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
+      { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
+      { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
+      len: 5,
+      hintNum: 0
+    },
+    down: {
+      text: "In computer science and mathematics, which term is used to represent the difference or change in a variable, often appearing in equations or algorithms to calculate differences between values?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },],
+      len: 5,
+      hintNum: 0
+    }
+  },
+  2: {
+    right: {
+      text: "In programming, I can be called with a status code to terminate execution, and in some cases, I clean up resources before doing so. In shell scripts, I signify the end of a process. What am I?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
+    }
+  },
+  3: {
+    right: {
+      text: "Which communication system, once widely used for sending written messages over long distances, relied on teleprinters and was commonly used by businesses before the advent of fax and email?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+    }
+  },
+  4: {
+    right: {
+      text: "In operating systems, I can be set to send a signal after a specified time interval, often used to interrupt sleeping processes or enforce timeouts. What am I?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+    },
+    // down: { text: "Sun rises in the?", answer: "EAST" }
+  },
+  5: {
+    down: {
+      text: "What word describes the action of forcefully removing an unauthorized user from a system or network?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },],
+      len: 5,
+      hintNum: 0
+    },
+    // down: { text: "Sun rises in the?", answer: "EAST" }
+  },
+  6: {
+    down: {
+      text: "What word means to express something verbally, and can also relate to speech synthesis in AI and voice assistants?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },],
+      len: 5,
+      hintNum: 0
+    }
+  }
+};
+const questions2 = {
+  1: {
+    right: {
+      text: "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
+      hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
+      { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
+      { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
+      len: 5,
+      hintNum: 0
+    },
+    down: {
+      text: "In computer science and mathematics, which term is used to represent the difference or change in a variable, often appearing in equations or algorithms to calculate differences between values?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },],
+      len: 5,
+      hintNum: 0
+    }
+  },
+  2: {
+    right: {
+      text: "In programming, I can be called with a status code to terminate execution, and in some cases, I clean up resources before doing so. In shell scripts, I signify the end of a process. What am I?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
+    }
+  },
+  3: {
+    right: {
+      text: "Which communication system, once widely used for sending written messages over long distances, relied on teleprinters and was commonly used by businesses before the advent of fax and email?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+    }
+  },
+  4: {
+    right: {
+      text: "In operating systems, I can be set to send a signal after a specified time interval, often used to interrupt sleeping processes or enforce timeouts. What am I?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+    },
+    // down: { text: "Sun rises in the?", answer: "EAST" }
+  },
+  5: {
+    down: {
+      text: "What word describes the action of forcefully removing an unauthorized user from a system or network?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },],
+      len: 5,
+      hintNum: 0
+    },
+    // down: { text: "Sun rises in the?", answer: "EAST" }
+  },
+  6: {
+    down: {
+      text: "What word means to express something verbally, and can also relate to speech synthesis in AI and voice assistants?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },],
+      len: 5,
+      hintNum: 0
+    }
+  }
+};
+const questions3 = {
+  1: {
+    right: {
+      text: "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
+      hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
+      { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
+      { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
+      len: 5,
+      hintNum: 0
+    },
+    down: {
+      text: "In computer science and mathematics, which term is used to represent the difference or change in a variable, often appearing in equations or algorithms to calculate differences between values?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },],
+      len: 5,
+      hintNum: 0
+    }
+  },
+  2: {
+    right: {
+      text: "In programming, I can be called with a status code to terminate execution, and in some cases, I clean up resources before doing so. In shell scripts, I signify the end of a process. What am I?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
+    }
+  },
+  3: {
+    right: {
+      text: "Which communication system, once widely used for sending written messages over long distances, relied on teleprinters and was commonly used by businesses before the advent of fax and email?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+    }
+  },
+  4: {
+    right: {
+      text: "In operating systems, I can be set to send a signal after a specified time interval, often used to interrupt sleeping processes or enforce timeouts. What am I?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+    },
+    // down: { text: "Sun rises in the?", answer: "EAST" }
+  },
+  5: {
+    down: {
+      text: "What word describes the action of forcefully removing an unauthorized user from a system or network?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },],
+      len: 5,
+      hintNum: 0
+    },
+    // down: { text: "Sun rises in the?", answer: "EAST" }
+  },
+  6: {
+    down: {
+      text: "What word means to express something verbally, and can also relate to speech synthesis in AI and voice assistants?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },],
+      len: 5,
+      hintNum: 0
+    }
+  }
+};
+const questions4 = {
+  1: {
+    right: {
+      text: "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
+      hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
+      { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
+      { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
+      len: 5,
+      hintNum: 0
+    },
+    down: {
+      text: "In computer science and mathematics, which term is used to represent the difference or change in a variable, often appearing in equations or algorithms to calculate differences between values?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },],
+      len: 5,
+      hintNum: 0
+    }
+  },
+  2: {
+    right: {
+      text: "In programming, I can be called with a status code to terminate execution, and in some cases, I clean up resources before doing so. In shell scripts, I signify the end of a process. What am I?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
+    }
+  },
+  3: {
+    right: {
+      text: "Which communication system, once widely used for sending written messages over long distances, relied on teleprinters and was commonly used by businesses before the advent of fax and email?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+    }
+  },
+  4: {
+    right: {
+      text: "In operating systems, I can be set to send a signal after a specified time interval, often used to interrupt sleeping processes or enforce timeouts. What am I?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+    },
+    // down: { text: "Sun rises in the?", answer: "EAST" }
+  },
+  5: {
+    down: {
+      text: "What word describes the action of forcefully removing an unauthorized user from a system or network?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },],
+      len: 5,
+      hintNum: 0
+    },
+    // down: { text: "Sun rises in the?", answer: "EAST" }
+  },
+  6: {
+    down: {
+      text: "What word means to express something verbally, and can also relate to speech synthesis in AI and voice assistants?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },],
+      len: 5,
+      hintNum: 0
+    }
+  }
+};
+const questions5 = {
   1: {
     right: {
       text: "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
@@ -126,8 +381,11 @@ const Level1 = () => {
   const [direction, setDirection] = useState(0);
   const [correct, showCorrectMessage] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
+  const [crosswordGrid, setCrosswordGrid] = useState([]);
+  const [questions,setQuestions]=useState({}); 
   const location = useLocation();
   const { email } = location.state || {};
+  const [completion,setCompletion]=useState(false);
   // State to track the answers entered by the user
   // const [answers, setAnswers] = useState(Array(7).fill("")); // 7 questions, 7 answers
 
@@ -161,6 +419,10 @@ const Level1 = () => {
 
         const result = await response.json();
         console.log(result);
+        if(result.gridNum){
+          setCrosswordGrid(eval(`crossGrid${result.gridNum}`));
+          setQuestions(eval(`questions${result.gridNum}`));
+        }
         setUser(result);
         if (result.Level1) {
           navigate("/checkpoints");
@@ -296,7 +558,6 @@ const Level1 = () => {
   //this use effect is used for checking if the crossword is completed
   useEffect(() => {
     const level1Completed = async () => {
-
       try {
         // console.log(email,password)
         const response = await fetch("http://localhost:5000/completion", { // Ensure "http://" is included
@@ -335,11 +596,16 @@ const Level1 = () => {
         }
       })
     })
-    if (flag) {
+    if (crosswordGrid.length>0 && flag) {
       if (level1Completed()) {
-        navigate("checkpoints");
+        setCompletion(true);
+                  setTimeout(() => {
+                    setCompletion(false);
+                    navigate("/checkpoints");
+                }, 3000);
+        
       }
-      navigate("/checkpoints")
+      // navigate("/checkpoints")
     }
 
   }, [userInput]);
@@ -535,12 +801,13 @@ const Level1 = () => {
               ))}
             </div>
           </div>
-          <div className= "fixed inset-0 flex justify-center items-center backdrop-blur-sm bg-black/30">
+          {completion && <div className= "border border-white fixed flex justify-center items-center backdrop-blur-sm bg-black/30">
             <div className="h-[300px] w-[800px] rounded-2xl bg-white/70 p-10 flex flex-col items-center shadow-lg">
                <p className="text-3xl text-green-600 font-bold mb-4 animate-pulse">Congratulations....! <br />You have completed the first level in Genius Gateway</p>
                <p className="text-2xl text-blue-600 font-bold animate-pulse">Your Current Points: {user.Points}</p>
            </div>
           </div>
+}
 
 
           {/* Navigation Buttons */}
