@@ -801,10 +801,11 @@ const Level1 = () => {
               ))}
             </div>
           </div>
-          {completion && <div className= "border border-white fixed flex justify-center items-center backdrop-blur-sm bg-black/30">
-            <div className="h-[300px] w-[800px] rounded-2xl bg-white/70 p-10 flex flex-col items-center shadow-lg">
-               <p className="text-3xl text-green-600 font-bold mb-4 animate-pulse">Congratulations....! <br />You have completed the first level in Genius Gateway</p>
-               <p className="text-2xl text-blue-600 font-bold animate-pulse">Your Current Points: {user.Points}</p>
+          {completion &&<div className= "fixed flex justify-center items-center ">
+            <div className="h-[500px] w-[550px] rounded-2xl bg-white 00 p-10 flex flex-col justify-evenly items-center shadow-lg">
+              <img src="level1message.png" alt="congratulations" className=""/>
+               <p className="text-3xl text-green-600 font-bold mb-4 text-center ">You have completed the first level in Genius Gateway</p>
+               <p className="text-2xl text-blue-600 font-bold ">Your Current Points: {user.Points}</p>
            </div>
           </div>
 }
