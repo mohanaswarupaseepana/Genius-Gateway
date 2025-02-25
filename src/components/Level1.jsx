@@ -393,7 +393,6 @@ const Level1 = () => {
     // if (index === 0) {
     //   setcurrentIndex([0, 1]); // Show both question 1 and question 2 for button 1
     // } else {
-    console.log(index)
     if (questions[index + 1].down) {
       setDirection(0);
     } else if (questions[index + 1].right) {
@@ -427,7 +426,7 @@ const Level1 = () => {
         if (result.Level1) {
           navigate("/checkpoints");
         }
-        setForceRender((prev) => prev + 1);
+        // setForceRender((prev) => prev + 1);
 
 
         // if (response.status === 200) {
@@ -446,7 +445,7 @@ const Level1 = () => {
       navigate("/login");
     }
     fetchUser();
-  }, []);
+  }, [forceRender]);
 
   // const initialUserInput = Array(5).fill("").map(() => Array(5).fill(""));
   // const [userInput, setUserInput] = useState(() => {
@@ -496,7 +495,7 @@ const Level1 = () => {
                   break;
                 }
               }
-              console.log(`flag ${i} ${j} ${flag}`);
+              // console.log(`flag ${i} ${j} ${flag}`);
               if (flag) {
                 // console.log(`flag true ${i} ${j}`);
                 let complete=false;
@@ -507,7 +506,8 @@ const Level1 = () => {
 
                 }
                 if(complete){
-                setForceRender((prev) => prev + 1);
+                  handleCorrect();
+                // setForceRender((prev) => prev + 1);
                 showCorrectMessage(true);
                 setTimeout(() => {
                   showCorrectMessage(false);
@@ -539,7 +539,8 @@ const Level1 = () => {
                   // setForceRender((prev) => prev + 1);
                 }
                 if(complete){
-                  setForceRender((prev) => prev + 1);
+                  handleCorrect();
+                  // setForceRender((prev) => prev + 1);
                   showCorrectMessage(true);
                   setTimeout(() => {
                     showCorrectMessage(false);
@@ -554,6 +555,37 @@ const Level1 = () => {
 
     // setUserInput(newGrid);
   }, [userInput]);
+
+  const handleCorrect=async()=>{
+    try {
+      // console.log(email,password)
+          
+          const response = await fetch("http://localhost:5000/marks", { // Ensure "http://" is included
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            }, // Convert state to JSON string
+            body: JSON.stringify({ email: email })
+          });
+          const result = await response.json();
+          console.log(result);
+          setForceRender((prev) => prev + 1); 
+  }
+      
+
+
+      // if (response.status === 200) {
+      //   // navigate("/level1");
+
+      // } else {
+      //   setResponseMessage(result.message || "Login failed");
+      // }
+     catch (error) {
+      console.log(error);
+      // setResponseMessage(`Error: ${error.message}`);
+      // navigate("/login");
+    }
+  }
 
   //this use effect is used for checking if the crossword is completed
   useEffect(() => {
@@ -635,6 +667,86 @@ const Level1 = () => {
     const secs = seconds % 60;
     return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
   };
+
+  const handledownHint=async(index)=>{
+   
+        try {
+          // console.log(email,password)
+          if (questions[currentIndex + 1].down.hintNum === index) 
+            { 
+              questions[currentIndex + 1].down.hintNum += 1;
+              questions[currentIndex + 1].down.hints[index].used = true; 
+              
+              const response = await fetch("http://localhost:5000/decrementMarks", { // Ensure "http://" is included
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                }, // Convert state to JSON string
+                body: JSON.stringify({ email: email,hintsUsed:index+1 })
+              });
+              const result = await response.json();
+              console.log(result);
+              setForceRender((prev) => prev + 1); 
+      }
+          
+  
+  
+          // if (response.status === 200) {
+          //   // navigate("/level1");
+  
+          // } else {
+          //   setResponseMessage(result.message || "Login failed");
+          // }
+        } catch (error) {
+          console.log(error);
+          // setResponseMessage(`Error: ${error.message}`);
+          // navigate("/login");
+        }
+
+         
+
+  }
+
+  const handlerightHint=async(index)=>{
+   
+    try {
+      // console.log(email,password)
+      // console.log(index);
+      if (questions[currentIndex + 1].right.hintNum === index) 
+        { 
+          
+          questions[currentIndex + 1].right.hintNum += 1;
+          questions[currentIndex + 1].right.hints[index].used = true; 
+          
+          const response = await fetch("http://localhost:5000/decrementMarks", { // Ensure "http://" is included
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            }, // Convert state to JSON string
+            body: JSON.stringify({ email: email,hintsUsed:index+1 })
+          });
+          const result = await response.json();
+          console.log(result);
+          setForceRender((prev) => prev + 1); 
+  }
+      
+
+
+      // if (response.status === 200) {
+      //   // navigate("/level1");
+
+      // } else {
+      //   setResponseMessage(result.message || "Login failed");
+      // }
+    } catch (error) {
+      console.log(error);
+      // setResponseMessage(`Error: ${error.message}`);
+      // navigate("/login");
+    }
+
+     
+
+}
 
   return (
     <div className=" flex flex-col items-center">
@@ -734,8 +846,12 @@ const Level1 = () => {
                   <div className="flex justify-center my-3 ">
                     {questions[currentIndex + 1].down && questions[currentIndex + 1].right && (
                       <div className="flex gap-3 justify-around w-2/3  rounded-xl ">
-                        <button className={` cursor-pointer border-gray-300 border-2 w-1/2 py-3  rounded-xl ${direction === 0 ? "bg-blue-700 " : ""}`} onClick={() => setDirection(0)}>Direction 1</button>
-                        <button className={`cursor-pointer border-gray-300 border-2 w-1/2 py-3  rounded-xl ${direction === 1 ? "bg-blue-700 " : ""}`} onClick={() => setDirection(1)}>Direction 2</button>
+                        <button 
+                        className={` cursor-pointer border-gray-300 border-2 w-1/2 py-3  rounded-xl ${direction === 0 ? "bg-blue-700 " : ""}`} 
+                        onClick={() => setDirection(0)}>Direction 1</button>
+                        <button 
+                        className={`cursor-pointer border-gray-300 border-2 w-1/2 py-3  rounded-xl ${direction === 1 ? "bg-blue-700 " : ""}`} 
+                        onClick={() => setDirection(1)}>Direction 2</button>
 
                       </div>
                     )}
@@ -750,9 +866,18 @@ const Level1 = () => {
                         </p>
                         <div className=" flex flex-col justify-center items-center mt-4">
                           <div className="flex gap-3 justify-center items-center">
-                            <button className={`p-2  rounded-xl flex  items-center ${questions[currentIndex + 1].down.hintNum == 0 ? "bg-yellow-500 cursor-pointer" : "bg-gray-600"}`} onClick={() => { if (questions[currentIndex + 1].down.hintNum === 0) { questions[currentIndex + 1].down.hints[0].used = true, questions[currentIndex + 1].down.hintNum += 1, setForceRender((prev) => prev + 1); } }}><IoBulbOutline /> Hint 1</button>
-                            <button className={`p-2  rounded-xl flex  items-center ${questions[currentIndex + 1].down.hintNum == 1 ? "bg-yellow-500" : "bg-gray-600"}`} onClick={() => { if (questions[currentIndex + 1].down.hintNum === 1) { questions[currentIndex + 1].down.hints[1].used = true, questions[currentIndex + 1].down.hintNum += 1, setForceRender((prev) => prev + 1); } }}><IoBulbOutline /> Hint 2</button>
-                            <button className={`p-2  rounded-xl flex  items-center ${questions[currentIndex + 1].down.hintNum == 2 ? "bg-yellow-500" : "bg-gray-600"}`} onClick={() => { if (questions[currentIndex + 1].down.hintNum === 2) { questions[currentIndex + 1].down.hints[2].used = true, questions[currentIndex + 1].down.hintNum += 1, setForceRender((prev) => prev + 1); } }}><IoBulbOutline /> Hint 3</button>
+                            <button 
+                            className={`p-2  rounded-xl flex  items-center ${questions[currentIndex + 1].down.hintNum == 0 ? "bg-yellow-500 cursor-pointer" : "bg-gray-600"}`} 
+                            disabled={questions[currentIndex+1].down.hintNum!==0}
+                            onClick={()=>handledownHint(0)}><IoBulbOutline /> Hint 1</button>
+                            <button 
+                            className={`p-2  rounded-xl flex  items-center ${questions[currentIndex + 1].down.hintNum == 1 ? "bg-yellow-500 cursor-pointer" : "bg-gray-600"}`} 
+                            disabled={questions[currentIndex+1].down.hintNum!==1}
+                            onClick={()=>handledownHint(1)}><IoBulbOutline /> Hint 2</button>
+                            <button 
+                            className={`p-2  rounded-xl flex  items-center ${questions[currentIndex + 1].down.hintNum == 2 ? "bg-yellow-500 cursor-pointer" : "bg-gray-600"}`} 
+                            disabled={questions[currentIndex+1].down.hintNum!==2}
+                            onClick={()=>handledownHint(2)}><IoBulbOutline /> Hint 3</button>
                           </div>
                           <div className="flex flex-col gap-3 w-full pt-3">
                             {questions[currentIndex + 1].down.hints.map((hint, index) =>
@@ -771,9 +896,18 @@ const Level1 = () => {
                         </p>
                         <div className="flex flex-col justify-center mt-4">
                           <div className="flex gap-3 justify-center">
-                            <button className={`p-2 rounded-xl flex  items-center ${questions[currentIndex + 1].right.hintNum == 0 ? "bg-yellow-500 cursor-pointer" : "bg-gray-600"}`} onClick={() => { if (questions[currentIndex + 1].right.hintNum === 0) { questions[currentIndex + 1].right.hints[0].used = true, questions[currentIndex + 1].right.hintNum += 1, setForceRender((prev) => prev + 1); } }}><IoBulbOutline /> Hint 1</button>
-                            <button className={`p-2 rounded-xl flex  items-center ${questions[currentIndex + 1].right.hintNum == 1 ? "bg-yellow-500 cursor-pointer" : "bg-gray-600"}`} onClick={() => { if (questions[currentIndex + 1].right.hintNum === 1) { questions[currentIndex + 1].right.hints[1].used = true, questions[currentIndex + 1].right.hintNum += 1, setForceRender((prev) => prev + 1); } }}><IoBulbOutline /> Hint 2</button>
-                            <button className={`p-2 rounded-xl flex  items-center ${questions[currentIndex + 1].right.hintNum == 2 ? "bg-yellow-500 cursor-pointer" : "bg-gray-600"}`} onClick={() => { if (questions[currentIndex + 1].right.hintNum === 2) { questions[currentIndex + 1].right.hints[2].used = true, questions[currentIndex + 1].right.hintNum += 1, setForceRender((prev) => prev + 1); } }}><IoBulbOutline /> Hint 3</button>
+                            <button 
+                            className={`p-2 rounded-xl flex  items-center ${questions[currentIndex + 1].right.hintNum == 0 ? "bg-yellow-500 cursor-pointer" : "bg-gray-600"}`} 
+                            disabled={questions[currentIndex+1].right.hintNum!==0}
+                            onClick={()=>handlerightHint(0)}><IoBulbOutline /> Hint 1</button>
+                            <button 
+                            className={`p-2 rounded-xl flex  items-center ${questions[currentIndex + 1].right.hintNum == 1 ? "bg-yellow-500 cursor-pointer" : "bg-gray-600"}`} 
+                            disabled={questions[currentIndex+1].right.hintNum!==1}
+                            onClick={()=>handlerightHint(1)}><IoBulbOutline /> Hint 2</button>
+                            <button 
+                            className={`p-2 rounded-xl flex  items-center ${questions[currentIndex + 1].right.hintNum == 2 ? "bg-yellow-500 cursor-pointer" : "bg-gray-600"}`} 
+                            disabled={questions[currentIndex+1].right.hintNum!==2}
+                            onClick={()=>handlerightHint(2)}><IoBulbOutline /> Hint 3</button>
                           </div>
                           <div className="flex flex-col gap-3 w-full pt-3">
                             {questions[currentIndex + 1].right.hints.map((hint, index) =>
@@ -789,7 +923,7 @@ const Level1 = () => {
               )}
             </div>
             <div className=" grid grid-cols-6 gap-2">
-              {Array.from({ length: 6 }).map((_, index) => (
+              {Array.from({ length: Object.keys(questions).length }).map((_, index) => (
                 <button
                   key={index + 1}
                   className={`w-10 h-10 border rounded-md  ${currentIndex === index ? "bg-blue-500" : "bg-gray-500"
