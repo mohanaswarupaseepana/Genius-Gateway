@@ -634,7 +634,7 @@ const Level1 = () => {
                   setTimeout(() => {
                     setCompletion(false);
                     navigate("/checkpoints");
-                }, 3000);
+                }, 10000);
         
       }
       // navigate("/checkpoints")
@@ -750,10 +750,10 @@ const Level1 = () => {
 
   return (
     <div className=" flex flex-col items-center">
-      <div className="fixed w-screen h-screen top-0 bg-[url('/bglevel1.jpg')] bg-cover bg-center bg-no-repeat  ">
+      <div className=" fixed w-screen h-screen top-0 bg-[url('/bglevel1.jpg')] bg-cover bg-center bg-no-repeat  ">
       </div>
       {/* Title */}
-      <div className="  flex flex-col items-center backdrop-blur-sm">
+      <div className=" min-h-dvh min-w-dvw  flex flex-col items-center backdrop-blur-sm">
 
         <div className="flex justify-between w-full px-7 items-center">
           <div className=" flex flex-col gap-4 w-1/4">
