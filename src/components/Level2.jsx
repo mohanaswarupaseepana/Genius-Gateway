@@ -1,20 +1,32 @@
 import { useState, useEffect } from 'react';
 import { RxCross2 } from "react-icons/rx";
+import MagicSquare from './MagicSquare';
+import Queens from './Queens';
 
 const Level2 = () => {
     // Questions data
-    const questions = {
-        1: "What is React?",
-        2: "What is JSX?",
-        3: "What are hooks?",
-        4: "What is Virtual DOM?",
-        5: "What is component state?",
-        6: "What are props?",
-        7: "What is Tailwind CSS?",
-        8: "What is a higher-order component?",
-        9: "What is Redux?"
-    };
-    
+    const handleSuccess = (qNum) => {
+        console.log("Success");
+        console.log(qNum);
+        setPresentDoor(-1);
+        setDoorClick(false);
+        setAnsweredOne(true);
+        questions[qNum].answer = true;
+    }
+    const [questions,setQuestions] = useState({
+        1: { component: <MagicSquare />, answer: false },
+        2: { component: <MagicSquare />, answer: false },
+        3: { component: <Queens handleSubmit={handleSuccess} qNum={3} />, answer: false },
+        4: { component: <MagicSquare />, answer: false },
+        5: { component: <MagicSquare />, answer: false },
+        6: { component: <MagicSquare />, answer: false },
+        7: { component: <MagicSquare />, answer: false },
+        8: { component: <MagicSquare />, answer: false },
+        9: { component: <MagicSquare />, answer: false },
+    });
+
+
+
 
     // Generate random groups
     const generateGroups = () => {
@@ -23,14 +35,15 @@ const Level2 = () => {
         return [shuffled.slice(0, 3), shuffled.slice(3, 6), shuffled.slice(6, 9)];
     };
 
-    let email ="rani@gmail.com"
+    let email = "rani@gmail.com"
 
     const [groups, setGroups] = useState([]);
+    const [answeredOne, setAnsweredOne] = useState(false);
     const [currentSection, setCurrentSection] = useState(0);
     const [presentDoor, setPresentDoor] = useState(-1);
     const [doorClick, setDoorClick] = useState(false);
-    const [openedDoors,setOpenedDoors]=useState([]);
-    
+    const [openedDoors, setOpenedDoors] = useState([]);
+
 
     useEffect(() => {
         setGroups(generateGroups());
@@ -92,52 +105,54 @@ const Level2 = () => {
                     Section {currentSection + 1}
                 </h1>
 
-                <div className="border border-white justify-around flex w-[80%] h-[600px]">
+                <div className="border border-white justify-around flex w-[80%] h-[400px]">
                     {groups[currentSection].map((qNum) => (
-                        <div
+                        <>
+                        {questions[qNum].answer ?(<p>qNum</p>):(<div
                             key={qNum}
                             className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
-                            onClick={() => { 
-                                if(!openedDoors.includes(qNum) && openedDoors.length<2) setOpenedDoors(prevDoors => [...prevDoors, qNum]);;
-                                setPresentDoor(qNum); 
+                            onClick={() => {
+                                if (!openedDoors.includes(qNum) && openedDoors.length < 2) setOpenedDoors(prevDoors => [...prevDoors, qNum]);;
+                                setPresentDoor(qNum);
                                 setDoorClick(true);
-                                console.log(openedDoors); 
+                                console.log(openedDoors);
                             }}
                         >
+                            {/* {questions[qNum].answer === true ?} */}
                             <div className="text-lg font-semibold text-gray-700 mb-2">
                                 Question {qNum}
                             </div>
-                            <div className="text-gray-600">
+                            {/* <div className="text-gray-600">
                                 {questions[qNum]}
-                            </div>
-                            {openedDoors.includes(qNum)&&presentDoor === qNum && doorClick &&
+                            </div> */}
+                            {(openedDoors.includes(qNum) || answeredOne) && presentDoor === qNum && doorClick &&
                                 <div className='absolute inset-0 flex flex-col justify-center items-center border w-screen h-screen '>
 
-                                    <div className='flex flex-col bg-black text-white w-[90%] h-[730px] p-6'>
-                                        <RxCross2 className='text-white self-end cursor-pointer' 
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            setPresentDoor(-1);
-                                            setDoorClick(false);
-                                            console.log(openedDoors);
-                                        }} />
-                                        <div className='h-full w-full flex'>
-                                            <div className='w-1/2 bg-red-500 h-full'><p>Hello</p>
-                                                {questions[qNum]}</div>
-                                            <div className='w-1/2 bg-green-500 h-full'></div>
+                                    <div className='flex flex-col bg-black text-white w-[90%] h-[630px] '>
+                                        <RxCross2 className='absolute text-4xl m-5 text-gray-300 self-end cursor-pointer'
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setPresentDoor(-1);
+                                                setDoorClick(false);
+                                                console.log(openedDoors);
+                                            }} />
+                                        <div className='h-full w-full '>
+                                            {questions[qNum].component}
                                         </div>
 
                                     </div>
                                 </div>}
 
-                        </div>
+                        </div>)} 
+                        </>
+                        
                     ))}
 
                 </div>
 
                 <div className="text-center">
                     <button
-                        onClick={()=>{handleNext();setOpenedDoors([]);}}
+                        onClick={() => { handleNext(); setOpenedDoors([]); }}
                         disabled={currentSection === 2}
                         className={`px-6 py-2 rounded-lg font-medium ${currentSection === 2
                             ? 'bg-gray-400 cursor-not-allowed'

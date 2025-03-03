@@ -36,7 +36,7 @@ const MagicSquare = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-300 to-purple-400 text-gray-800">
+    <div className="h-full flex flex-col items-center justify-center bg-gradient-to-r from-blue-300 to-purple-400 text-gray-800">
       <h1 className="text-4xl font-bold mb-4">3x3 Magic Square</h1>
       <p className="mb-6">{message}</p>
       <div className="grid grid-cols-3 gap-2">
