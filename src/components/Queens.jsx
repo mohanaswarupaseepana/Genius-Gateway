@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import React from 'react';
 
-const Queens = ({handleSubmit,qNum}) => {
+const Queens = ({ handleSubmit, qNum }) => {
   const [queens, setQueens] = useState([0, 1, 2, 3, 4, 5, 6, 7]);
 
   // Check if a queen at (row, col) conflicts with others
@@ -21,7 +21,7 @@ const Queens = ({handleSubmit,qNum}) => {
   };
 
   const isValidSolution = () => {
-    if(queens.every((col, row) => !hasConflict(row, col))){
+    if (queens.every((col, row) => !hasConflict(row, col))) {
       handleSubmit(qNum);
     }
     return queens.every((col, row) => !hasConflict(row, col));
@@ -30,29 +30,28 @@ const Queens = ({handleSubmit,qNum}) => {
   return (
     <div className="h-full w-full bg-gray-100 flex items-center justify-evenly p-4">
       <div className='w-1/2 h-full flex flex-col px-6 gap-4 overflow-y-scroll py-5'>
-      <div className=" ">
-        <h2 className="text-xl font-semibold text-gray-700">Objective</h2>
-        <p className="text-gray-600"> The 8 Queens puzzle is a famous combinatorial problem in chess. It challenges players to position 8 queens so that none of them share the same row, column, or diagonal. Place all 8 queens so that no two attack each other.</p>
-      </div>
-      <div className="">
-        <h2 className="text-xl font-semibold text-gray-700">Rules</h2>
-        <ul className="list-disc list-inside text-gray-600">
-          <li>Each row must contain exactly one queen.</li>
-          <li>Queens cannot be in the same column.</li>
-          <li>Queens cannot share diagonals.</li>
-        </ul>
-      </div>
-      <div className="">
-        <h2 className="text-xl font-semibold text-gray-700">How to Play</h2>
-        <p className="text-gray-600">1️⃣ Click on any square in a row to place a queen.<br/>
-2️⃣ If a queen is already in that row, she will move to the selected column.<br/>
-3️⃣ If a queen is in a conflicting position, the square will be highlighted in red.<br/>
-4️⃣ Keep adjusting until all conflicts are resolved.<br/>
-5️⃣ Once a valid solution is found, you win! 🎉<br/>
+        <div className=" ">
+          <h2 className="text-xl font-semibold text-gray-700">Objective</h2>
+          <p className="text-gray-600"> The 8 Queens puzzle is a famous combinatorial problem in chess. It challenges players to position 8 queens so that none of them share the same row, column, or diagonal. Place all 8 queens so that no two attack each other.</p>
+        </div>
+        <div className="">
+          <h2 className="text-xl font-semibold text-gray-700">Rules</h2>
+          <ul className="list-disc list-inside text-gray-600">
+            <li>Each row must contain exactly one queen.</li>
+            <li>Queens cannot be in the same column.</li>
+            <li>Queens cannot share diagonals.</li>
+          </ul>
+        </div>
+        <div className="">
+          <h2 className="text-xl font-semibold text-gray-700">How to Play</h2>
+          <p className="text-gray-600">1️⃣ Click on any square in a row to place a queen.<br />
+            2️⃣ If a queen is already in that row, she will move to the selected column.<br />
+            3️⃣ If a queen is in a conflicting position, the square will be highlighted in red.<br />
+            4️⃣ Keep adjusting until all conflicts are resolved.<br />
+            5️⃣ Once a valid solution is found, you win! 🎉<br />
+            🔄 Reset Button: If stuck, click the reset button to restart.</p>
+        </div>
 
-🔄 Reset Button: If stuck, click the reset button to restart.</p>
-      </div>
-      
 
       </div>
       <div className='w-1/2 h-full flex flex-col justify-center items-center'>
