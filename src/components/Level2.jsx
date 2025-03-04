@@ -14,7 +14,7 @@ const Level2 = () => {
         questions[qNum].answer = true;
     }
     const [questions,setQuestions] = useState({
-        1: { component: <MagicSquare />, answer: false },
+        1: { component: <towers_of_hanoi />, answer: false },
         2: { component: <MagicSquare />, answer: false },
         3: { component: <Queens handleSubmit={handleSuccess} qNum={3} />, answer: false },
         4: { component: <MagicSquare />, answer: false },

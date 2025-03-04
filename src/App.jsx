@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Level2 from "./components/Level2.jsx"
 import Queens from "./components/Queens.jsx"
 import Welcome from "./components/Welcome.jsx"
+import TowersOfHanoi from './components/TowersOfHanoi.jsx'
 const App = () => {
   return (
     <Router>
@@ -17,8 +18,9 @@ const App = () => {
         <Route path="/checkpoints" element={<Checkpoints />} />
         <Route path="/leaderboard" element={<Leaderboard_level1 />} />
         <Route path="/magicSquare" element={<MagicSquare />} />
+        <Route path="/towersofhanoi" element={<TowersOfHanoi   />} />
         <Route path="/welcome" element={<Welcome />} />
-        <Route path="/sample" element={<Queens/>}/>
+        <Route path="/level3" element={<Queens/>}/>
       </Routes>
     </Router>
   )

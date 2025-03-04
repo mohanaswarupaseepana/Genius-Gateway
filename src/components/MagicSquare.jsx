@@ -27,7 +27,7 @@ const MagicSquare = () => {
       setMessage('Use each number from 1 to 9 exactly once.');
       return;
     }
-    setMessage(isMagicSquare(grid) ? 'Correct! You solved the Magic Square!' : 'Incorrect. Try again!');
+    setMessage(isMagicSquare(grid)? 'Correct! You solved the Magic Square!' : 'Incorrect. Try again!');
   };
 
   const resetGrid = () => {

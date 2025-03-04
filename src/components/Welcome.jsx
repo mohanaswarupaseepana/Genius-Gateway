@@ -1,12 +1,17 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Welcome = () => {
-  const [step, setStep] = useState(0); // Track the current step (Welcome -> About -> Rules)
+  const [step, setStep] = useState(0);
+  const navigate = useNavigate();// Track the current step (Welcome -> About -> Rules)
 
   const nextStep = () => {
     if (step < 2) {
       setStep(step + 1); // Move to the next step (Welcome -> About -> Rules)
+    }
+    else {
+      navigate("/level1"); // Redirect to Level 1 on final step
     }
   };
 
