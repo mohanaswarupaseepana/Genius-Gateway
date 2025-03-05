@@ -4,15 +4,44 @@ import MagicSquare from './MagicSquare';
 import Queens from './Queens';
 import { useNavigate } from 'react-router-dom';
 import TowersOfHanoi from './TowersOfHanoi';
+import KenKen from './Kenken';
+import { useLocation } from 'react-router-dom';
 
 let key = [];
 const Level2 = () => {
+    const [user, setUser] = useState({});
     const [groups, setGroups] = useState([]);
     const [answeredOne, setAnsweredOne] = useState(false);
     const [currentSection, setCurrentSection] = useState(0);
     const [presentDoor, setPresentDoor] = useState(-1);
     const [doorClick, setDoorClick] = useState(false);
     const [openedDoors, setOpenedDoors] = useState([]);
+    const targetTime = "2025-03-05T16:37:00";
+    const calculateTimeLeft = () => {
+        const now = new Date().getTime(); // Current timestamp
+        const target = new Date(targetTime).getTime(); // Target timestamp
+        const difference = Math.max(target - now, 0); // Ensure non-negative time
+        return Math.floor(difference / 1000); // Convert to seconds
+    };
+
+    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+    useEffect(() => {
+        if (timeLeft <= 0) return;
+
+        const timer = setInterval(() => {
+            setTimeLeft(calculateTimeLeft());
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [timeLeft]);
+
+    // Format time as MM:SS
+    const formatTime = (seconds) => {
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+    };
 
     const navigate = useNavigate();
 
@@ -30,11 +59,11 @@ const Level2 = () => {
         }
         questions[qNum].answer = true;
     }
-    const [questions,setQuestions] = useState({
-        1: { component: <TowersOfHanoi />, answer: false },
-        2: { component: <MagicSquare />, answer: false },
+    const [questions, setQuestions] = useState({
+        1: { component: <TowersOfHanoi handleSubmit={handleSuccess} qNum={1} />, answer: false },
+        2: { component: <MagicSquare handleSubmit={handleSuccess} qNum={2} />, answer: false },
         3: { component: <Queens handleSubmit={handleSuccess} qNum={3} />, answer: false },
-        4: { component: <MagicSquare />, answer: false },
+        4: { component: <KenKen handleSubmit={handleSuccess} qNum={4} />, answer: false },
         5: { component: <MagicSquare />, answer: false },
         6: { component: <MagicSquare />, answer: false },
         7: { component: <MagicSquare />, answer: false },
@@ -52,7 +81,8 @@ const Level2 = () => {
         return [shuffled.slice(0, 3), shuffled.slice(3, 6), shuffled.slice(6, 9)];
     };
 
-    let email = "asha@gmail.com"
+    const location = useLocation();
+    const { email } = location.state || {};
 
 
 
@@ -77,6 +107,7 @@ const Level2 = () => {
 
                 const result = await response.json();
                 console.log(result);
+                setUser(result);
                 let Unum = result.UniqueNumber;
                 const Ukey = Unum.split("").map(Number);
                 console.log(Ukey);
@@ -108,23 +139,24 @@ const Level2 = () => {
 
     if (groups.length === 0) return <div>Loading...</div>;
 
+
     return (
         <div className=" flex flex-col items-center">
-            <div>Wow </div>
+
             <div className=" -z-10 fixed w-screen h-screen top-0 bg-[url('12979917_5084836.jpg')] bg-cover bg-center bg-no-repeat  ">
             </div>
             {/* <p className="h-20 backdrop-blur-sm text-transparent bg-clip-text items-center text-5xl font-bold  bg-gradient-to-br from-blue-400 via-green-300 to-purple-600 flex justify-center">Round 2: Vault of Minds</p> */}
             <div className=" min-h-dvh min-w-dvw  flex flex-col items-center backdrop-blur-xs">
                 <div className="flex justify-between w-full px-7 items-center">
                     <div className=" flex flex-col gap-4 w-1/4">
-                        <p className="text-lg h-[30px] font-bold text-purple-400">Team Name: </p>
-                        <p className=" text-lg h-[30px] font-bold text-purple-400">Points: </p>
+                        <p className="text-lg h-[30px] font-bold text-purple-400">Team Name: {user.teamName}</p>
+                        <p className=" text-lg h-[30px] font-bold text-purple-400">Points: {user.Points}</p>
                     </div>
 
                     <p className=" h-28 backdrop-blur-sm text-transparent bg-clip-text items-center text-5xl font-bold p-3 bg-gradient-to-br from-yellow-400 via-red-300 to-purple-600 flex justify-center"> Round-2 : Vault Of Minds</p>
-                    <p className="text-4xl font-bold text-green-400 w-1/4 flex justify-end">18:00</p>
+                    <p className="text-4xl font-bold text-green-400 w-1/4 flex justify-end">{formatTime(timeLeft)}</p>
                 </div>
-                <div className="border px-7 h-16 grid grid-cols-3  w-full items-center">
+                <div className="px-7 h-16 grid grid-cols-3  w-full items-center">
                     <p className="text-left font-bold text-4xl">Key: {key}</p>
                     <h1 className="text-3xl font-bold text-blue-400 text-center">
                         Checkpoint - {currentSection + 1}

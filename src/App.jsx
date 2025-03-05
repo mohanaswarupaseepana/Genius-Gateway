@@ -9,6 +9,7 @@ import Queens from "./components/Queens.jsx"
 import Welcome from "./components/Welcome.jsx"
 import TowersOfHanoi from './components/TowersOfHanoi.jsx'
 import Kenken from './components/Kenken.jsx'
+import Level3 from './components/Level3.jsx'
 const App = () => {
   return (
     <Router>

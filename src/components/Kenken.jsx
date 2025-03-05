@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
 
 const size = 3;
+// const cages = [
+//   { cells: [[0, 0], [0, 1]], result: 4, operation: "+", color: "border-red-500" },
+//   { cells: [[0, 2], [1, 2]], result: 3, operation: "-", color: "border-blue-600" },
+//   { cells: [[1, 0], [2, 0]], result: 5, operation: "+", color: "border-green-500" },
+//   { cells: [[1, 1], [2, 1]], result: 2, operation: "-", color: "border-yellow-500" },
+//   { cells: [[2, 2]], result: 1, operation: "", color: "border-purple-500" }
+// ];
 const cages = [
-  { cells: [[0, 0], [0, 1]], result: 4, operation: "+", color: "border-red-500" },
-  { cells: [[0, 2], [1, 2]], result: 3, operation: "-", color: "border-blue-600" },
-  { cells: [[1, 0], [2, 0]], result: 5, operation: "+", color: "border-green-500" },
-  { cells: [[1, 1], [2, 1]], result: 2, operation: "-", color: "border-yellow-500" },
-  { cells: [[2, 2]], result: 1, operation: "", color: "border-purple-500" }
+  { cells: [[0, 0], [1, 0],[1,1]], result: 5, operation: "+", color: "border-red-500" },
+  { cells: [[0, 1], [0, 2]], result: 2, operation: "-", color: "border-blue-600" },
+  { cells: [[2, 0], [2, 1]], result: 2, operation: "-", color: "border-green-500" },
+  { cells: [[1, 2], [2, 2]], result: 1, operation: "-", color: "border-yellow-500" },
+  // { cells: [[2, 2]], result: 1, operation: "", color: "border-purple-500" }
 ];
 
 const getCageBorders = (row, col) => {
@@ -29,7 +36,24 @@ const getCageBorders = (row, col) => {
   `;
 };
 
+const validateUniqueRowsAndColumns = (grid) => {
+  for (let i = 0; i < size; i++) {
+    const rowSet = new Set();
+    const colSet = new Set();
+    for (let j = 0; j < size; j++) {
+      // Check row uniqueness
+      if (rowSet.has(grid[i][j])) return false;
+      rowSet.add(grid[i][j]);
+      // Check column uniqueness
+      if (colSet.has(grid[j][i])) return false;
+      colSet.add(grid[j][i]);
+    }
+  }
+  return true;
+};
+
 const validateSolution = (grid) => {
+  if(validateUniqueRowsAndColumns(grid) === false){ console.log("Not unique");return false};
   for (const { cells, result, operation } of cages) {
     const values = cells.map(([r, c]) => parseInt(grid[r][c]) || 0);
     let computedResult = operation === "+" ? values.reduce((a, b) => a + b, 0) : values.reduce((a, b) => a - b);
@@ -84,7 +108,7 @@ const KenKen = ({ handleSubmit, qNum }) => {
       <div className='w-1/2 h-full flex flex-col justify-center items-center'>
         <h1 className="text-4xl font-bold mb-4 text-gray-800">3x3 KenKen</h1>
         <p className="mb-6 text-gray-600">{message}</p>
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 bg-gray-300">
           {grid.map((row, rowIndex) =>
             row.map((cell, colIndex) => (
               <div key={`${rowIndex}-${colIndex}`} className={`relative ${getCageBorders(rowIndex, colIndex)} border-gray-600`}> 
@@ -94,10 +118,10 @@ const KenKen = ({ handleSubmit, qNum }) => {
                   max={size}
                   value={cell}
                   onChange={(e) => handleChange(rowIndex, colIndex, e.target.value)}
-                  className="w-16 h-16 text-2xl text-center text-black bg-gray-300 shadow-md focus:outline-none"
+                  className="w-16 h-16 text-2xl text-center text-black bg-gray-300 focus:outline-none"
                 />
                 {cages.some(({ cells }) => cells[0][0] === rowIndex && cells[0][1] === colIndex) && (
-                  <span className="absolute top-0 left-0 text-xs p-1 font-bold">{
+                  <span className="text-black absolute top-0 left-0 text-xs p-1 font-bold">{
                     cages.find(({ cells }) => cells[0][0] === rowIndex && cells[0][1] === colIndex)?.result
                   }{cages.find(({ cells }) => cells[0][0] === rowIndex && cells[0][1] === colIndex)?.operation}
                   </span>
@@ -107,7 +131,7 @@ const KenKen = ({ handleSubmit, qNum }) => {
           )}
         </div>
         <div className="mt-4 space-x-4">
-          <button onClick={() => validateSolution(grid)} className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded-xl shadow-md">Check Solution</button>
+          {/* <button onClick={() => validateSolution(grid)} className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded-xl shadow-md">Check Solution</button> */}
           <button onClick={resetGrid} className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded-xl shadow-md">Reset</button>
         </div>
       </div>

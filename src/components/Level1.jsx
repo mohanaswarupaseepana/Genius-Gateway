@@ -424,7 +424,7 @@ const Level1 = () => {
         }
         setUser(result);
         if (result.Level1) {
-          navigate("/checkpoints");
+          navigate("/level2",{ state: { email:email} });
         }
         // setForceRender((prev) => prev + 1);
 
@@ -633,7 +633,7 @@ const Level1 = () => {
         setCompletion(true);
                   setTimeout(() => {
                     setCompletion(false);
-                    navigate("/checkpoints");
+                    navigate("/level2",{ state: { email:email} });
                 }, 10000);
         
       }
