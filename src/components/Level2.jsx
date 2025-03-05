@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import TowersOfHanoi from './TowersOfHanoi';
 import KenKen from './Kenken';
 import { useLocation } from 'react-router-dom';
+import Waterjug from './Waterjug';
 
 let key = [];
 const Level2 = () => {
@@ -64,7 +65,7 @@ const Level2 = () => {
         2: { component: <MagicSquare handleSubmit={handleSuccess} qNum={2} />, answer: false },
         3: { component: <Queens handleSubmit={handleSuccess} qNum={3} />, answer: false },
         4: { component: <KenKen handleSubmit={handleSuccess} qNum={4} />, answer: false },
-        5: { component: <MagicSquare />, answer: false },
+        5: { component: <Waterjug handleSubmit={handleSuccess} qNum={5} />, answer: false },
         6: { component: <MagicSquare />, answer: false },
         7: { component: <MagicSquare />, answer: false },
         8: { component: <MagicSquare handleSubmit={handleSuccess} qNum={8} />, answer: false },
