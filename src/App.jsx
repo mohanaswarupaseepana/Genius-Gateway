@@ -8,6 +8,7 @@ import Level2 from "./components/Level2.jsx"
 import Queens from "./components/Queens.jsx"
 import Welcome from "./components/Welcome.jsx"
 import TowersOfHanoi from './components/TowersOfHanoi.jsx'
+import Kenken from './components/Kenken.jsx'
 const App = () => {
   return (
     <Router>
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/magicSquare" element={<MagicSquare />} />
         <Route path="/towersofhanoi" element={<TowersOfHanoi   />} />
         <Route path="/welcome" element={<Welcome />} />
+        <Route path="/kenken" element={<Kenken />} />
         <Route path="/level3" element={<Queens/>}/>
       </Routes>
     </Router>
