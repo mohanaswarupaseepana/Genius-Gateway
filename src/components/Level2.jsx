@@ -3,6 +3,7 @@ import { RxCross2 } from "react-icons/rx";
 import MagicSquare from './MagicSquare';
 import Queens from './Queens';
 import { useNavigate } from 'react-router-dom';
+import TowersOfHanoi from './TowersOfHanoi';
 
 let key = [];
 const Level2 = () => {
@@ -30,7 +31,7 @@ const Level2 = () => {
         questions[qNum].answer = true;
     }
     const [questions,setQuestions] = useState({
-        1: { component: <towers_of_hanoi />, answer: false },
+        1: { component: <TowersOfHanoi/>, answer: false },
         2: { component: <MagicSquare />, answer: false },
         3: { component: <Queens handleSubmit={handleSuccess} qNum={3} />, answer: false },
         4: { component: <MagicSquare />, answer: false },
@@ -51,7 +52,7 @@ const Level2 = () => {
         return [shuffled.slice(0, 3), shuffled.slice(3, 6), shuffled.slice(6, 9)];
     };
 
-    let email = "naira@gmail.com"
+    let email = "asha@gmail.com"
 
 
 
