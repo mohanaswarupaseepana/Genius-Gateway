@@ -12,6 +12,7 @@ import Cipher from './components/Cipher.jsx'
 import Kenken from './components/Kenken.jsx'
 import Level3 from './components/Level3.jsx'
 import Waterjug from './components/Waterjug.jsx'
+import Coins from './components/Coins.jsx'
 const App = () => {
   return (
     <Router>
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/kenken" element={<Kenken />} />
         <Route path="/level3" element={<Queens/>}/>
         <Route path="/waterjug" element={<Waterjug/>}/>
+        <Route path="/coins" element={<Coins/>}/>
         <Route path="/cipher" element={<Cipher/>}/>
       </Routes>
     </Router>
