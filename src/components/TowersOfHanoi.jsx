@@ -75,24 +75,26 @@ const TowersOfHanoi = () => {
   const winCondition = tiles.every((tile) => tile.column === 3);
   return (
     <>
-      <div className="px-5 py-10 text-white bg-[#101720] ">
-        
-
-        <div className="flex flex-col items-center justify-center py-5 pt-16 ">
-        <h1 className="text-4xl font-bold text-blue-500 ">Tower Of <span className="text-blue-400">Hanoi</span></h1>
-        </div>
+      <div className="px-5 py-10 bg-[#101720] ">
+        <div>
         <div className="py-5 text-amber-400 ">
-          <div>
-            <span className="font-bold text--500">Objective:</span><span className="text-cyan-100"> Rebuild the tower in
-            the third column in as little moves as possible.</span>
+            <h2 className="font-bold text--500">Objective:</h2>
+            <p className="text-cyan-100"> Rebuild the tower in
+            the third column in as little moves as possible.</p>
           </div>
           <div>
-            <span className="font-bold text-amber-400">Instructions:</span><span className="text-cyan-100"> Move one tile at a
-            time, bigger tiles cannot go on top of smaller tiles.</span>
+          <h2 className="text-xl font-semibold text-amber-400">Rules</h2>
+          <ul className="list-disc list-inside text-cyan-100">
+            <li>Move one tile at a time .</li>
+            <li>bigger tiles cannot go on top of smaller tiles.</li>
+          </ul>
           </div>
-        </div>
+          </div>
+          
        
-        <div className="inline-flex w-full py-6 text-center bg-transparent justify-evenly ">
+       
+        <div className="inline-flex w-[60%] flex-row py-6 text-center bg-transparent justify-evenly ">
+          <h1>Towers Of Hanoi</h1>
           <div
             className="relative items-end h-[60vh] border-b-[20px] border rounded-b-md border-red-500 w-[30%]"
             id={1}
