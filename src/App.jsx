@@ -12,6 +12,7 @@ import Cipher from './components/Cipher.jsx'
 import Kenken from './components/Kenken.jsx'
 import Level3 from './components/Level3.jsx'
 import Waterjug from './components/Waterjug.jsx'
+import BridgeTorch from './components/BridgeTorch.jsx'
 const App = () => {
   return (
     <Router>
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/level3" element={<Queens/>}/>
         <Route path="/waterjug" element={<Waterjug/>}/>
         <Route path="/cipher" element={<Cipher/>}/>
+        <Route path="/bridgetorch" element={<BridgeTorch/>}/>
       </Routes>
     </Router>
   )
