@@ -9,6 +9,7 @@ import Queens from "./components/Queens.jsx"
 import Welcome from "./components/Welcome.jsx"
 import TowersOfHanoi from './components/TowersOfHanoi.jsx'
 import Kenken from './components/Kenken.jsx'
+import Waterjug from './components/Waterjug.jsx'
 const App = () => {
   return (
     <Router>
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/kenken" element={<Kenken />} />
         <Route path="/level3" element={<Queens/>}/>
+        <Route path="/waterjug" element={<Waterjug/>}/>
       </Routes>
     </Router>
   )
