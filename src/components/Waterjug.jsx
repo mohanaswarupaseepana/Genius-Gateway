@@ -15,10 +15,10 @@ function Waterjug({ handleSubmit, qNum }) {
   };
   useEffect(() => {
     console.log(jugs);
-    if (jugs.jug2 === 4) {
-      console.log("Success");
-      handleSubmit(qNum);
-    }
+    // if (jugs.jug2 === 4) {
+    //   console.log("Success");
+    //   handleSubmit(qNum);
+    // }
   }, [jugs]);
 
   // Handle transferring water between two jugs

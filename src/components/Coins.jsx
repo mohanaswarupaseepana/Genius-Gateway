@@ -100,7 +100,7 @@ const DropZone = ({ zoneName, coins, onDrop, isStack = false, expectedValue }) =
   );
 };
 
-const App = () => {
+const Coins = () => {
   // Create an odd number of coins:
   // 7 coins of 1/-, 5 coins of 5/-, 3 coins of 10/- (total 15 coins)
   const initialCoins = [
@@ -179,16 +179,27 @@ const App = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div style={{ display: 'flex', height: '100vh', fontFamily: 'Arial, sans-serif' }}>
-        {/* Left panel: Description, rules, and hints */}
-        <div style={{ flex: 1, padding: '20px', borderRight: '1px solid #ccc', overflowY: 'auto' }}>
-          <h2>Coin Split Puzzle</h2>
-          <p>
+      <div style={{ display: 'flex', height: '100vh', fontFamily: 'Roboto, sans-serif' }}>
+        {/* Left Panel: Description, Rules, and Hints */}
+        <div
+          style={{
+            width: '30%',
+            padding: '20px',
+            background: 'linear-gradient(135deg, #1e1e2f, #2c2c3c)',
+            color: '#e0e0e0',
+            boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)',
+            overflowY: 'auto'
+          }}
+        >
+          <h2 style={{ color: '#00e5ff', marginBottom: '10px', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+            Coin Split Puzzle
+          </h2>
+          <p style={{ lineHeight: '1.6', marginBottom: '15px' }}>
             You have coins of values 1/-, 5/-, and 10/-. The total number of coins is odd. Your goal is to drag the coins
             from their respective stacks into Group 1 and Group 2 so that both groups have equal total values.
           </p>
-          <h3>Rules:</h3>
-          <ul>
+          <h2 style={{ color: '#00e5ff', marginTop: '20px' }}>Rules:</h2>
+          <ul style={{ marginLeft: '20px', marginBottom: '15px' }}>
             <li>Coins are initially separated into three stacks by denomination.</li>
             <li>You can drag coins between the stacks and the groups.</li>
             <li>
@@ -196,45 +207,35 @@ const App = () => {
               <strong>{halfSum}</strong> (Total: {totalSum}).
             </li>
           </ul>
-          <h3>Hints:</h3>
-          <ul>
+          <h2 style={{ color: '#00e5ff', marginTop: '20px' }}>Hints:</h2>
+          <ul style={{ marginLeft: '20px' }}>
             <li>Drag coins from the appropriate stack (1/-, 5/-, 10/-) into the groups.</li>
             <li>If needed, move coins back to the stack to re-adjust.</li>
             <li>Check your totals by moving all coins out of the stacks.</li>
           </ul>
           {message && (
-            <div style={{ color: 'green', fontSize: '1.5rem', marginTop: '20px', fontWeight: 'bold' }}>
+            <div style={{ color: '#76ff03', fontSize: '1.5rem', marginTop: '20px', fontWeight: 'bold' }}>
               {message}
             </div>
           )}
         </div>
 
-        {/* Right panel: Interactive coin areas */}
-        <div style={{ flex: 2, padding: '20px', overflowY: 'auto' }}>
-          <h2>Arrange the Coins</h2>
-          {/* Display separate stacks for each coin type */}
+        {/* Right Panel: Interactive Coin Areas */}
+        <div
+          style={{
+            width: '70%',
+            padding: '20px',
+            background: 'linear-gradient(135deg, #2e2e3f, #38384a)',
+            overflowY: 'auto'
+          }}
+        >
+          <h2 style={{ color: '#76ff03', textAlign: 'center', marginBottom: '20px' }}>
+            Arrange the Coins
+          </h2>
           <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-            <DropZone
-              zoneName="Stack1"
-              coins={stack1}
-              onDrop={handleDrop}
-              isStack={true}
-              expectedValue={1}
-            />
-            <DropZone
-              zoneName="Stack5"
-              coins={stack5}
-              onDrop={handleDrop}
-              isStack={true}
-              expectedValue={5}
-            />
-            <DropZone
-              zoneName="Stack10"
-              coins={stack10}
-              onDrop={handleDrop}
-              isStack={true}
-              expectedValue={10}
-            />
+            <DropZone zoneName="Stack1" coins={stack1} onDrop={handleDrop} isStack={true} expectedValue={1} />
+            <DropZone zoneName="Stack5" coins={stack5} onDrop={handleDrop} isStack={true} expectedValue={5} />
+            <DropZone zoneName="Stack10" coins={stack10} onDrop={handleDrop} isStack={true} expectedValue={10} />
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '20px' }}>
             <DropZone zoneName="Group1" coins={group1} onDrop={handleDrop} />
@@ -246,4 +247,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Coins;
