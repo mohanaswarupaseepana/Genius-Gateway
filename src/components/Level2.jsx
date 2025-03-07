@@ -11,6 +11,7 @@ import { CiUnlock } from "react-icons/ci";
 import "../index.css";
 import { useCallback } from 'react';
 import GeniusCipherGameUI from './GeniusCipher';
+import Coins from './Coins';
 
 let key = [];
 const Level2 = () => {
@@ -86,10 +87,10 @@ const Level2 = () => {
         3: { component: <GeniusCipherGameUI handleSubmit={handleSuccess} qNum={3} />, answer: false },
         4: { component: <KenKen handleSubmit={handleSuccess} qNum={4} />, answer: false },
         5: { component: <Waterjug handleSubmit={handleSuccess} qNum={5} />, answer: false },
-        6: { component: <MagicSquare />, answer: false },
+        6: { component: <Coins />, answer: false },
         7: { component: <MagicSquare />, answer: false },
-        8: { component: <MagicSquare handleSubmit={handleSuccess} qNum={8} />, answer: false },
-        9: { component: <MagicSquare handleSubmit={handleSuccess} qNum={9} />, answer: false },
+        8: { component: <Coins/>, answer: false },
+        9: { component: <Coins />, answer: false },
     });
 
 

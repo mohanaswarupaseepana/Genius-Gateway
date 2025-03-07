@@ -68,6 +68,7 @@ const DropZone = ({ zoneName, coins, onDrop, isStack = false, expectedValue }) =
         border: '2px dashed #666',
         padding: '10px',
         minHeight: '200px',
+        maxWidth: '200px',
         backgroundColor: isOver ? '#e0ffe0' : '#fff',
       };
 
@@ -179,7 +180,7 @@ const Coins = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div style={{ display: 'flex', height: '100vh', fontFamily: 'Roboto, sans-serif' }}>
+      <div style={{ display: 'flex', fontFamily: 'Roboto, sans-serif' }} className='h-full'>
         {/* Left Panel: Description, Rules, and Hints */}
         <div
           style={{
