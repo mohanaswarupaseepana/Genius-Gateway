@@ -7,6 +7,11 @@ import TowersOfHanoi from './TowersOfHanoi';
 import KenKen from './Kenken';
 import { useLocation } from 'react-router-dom';
 import Waterjug from './Waterjug';
+import { CiUnlock } from "react-icons/ci";
+import "../index.css";
+import { useCallback } from 'react';
+import GeniusCipherGameUI from './GeniusCipher';
+import Coins from './Coins';
 
 let key = [];
 const Level2 = () => {
@@ -17,6 +22,8 @@ const Level2 = () => {
     const [presentDoor, setPresentDoor] = useState(-1);
     const [doorClick, setDoorClick] = useState(false);
     const [openedDoors, setOpenedDoors] = useState([]);
+    const [doorAnswer, setDoorAnswer] = useState(false);
+    const [wrongDoor, setWrongDoor] = useState(false);
     const targetTime = "2025-03-05T16:37:00";
     const calculateTimeLeft = () => {
         const now = new Date().getTime(); // Current timestamp
@@ -47,29 +54,43 @@ const Level2 = () => {
     const navigate = useNavigate();
 
     // Questions data
-    const handleSuccess = (qNum) => {
-        console.log("Success");
-        console.log(qNum);
+    const handleSuccess = useCallback((qNum) => {
+        console.log("Success", qNum, "currentSection:", currentSection);
         setPresentDoor(-1);
         setDoorClick(false);
         setAnsweredOne(true);
-        console.log(key);
-        if (qNum === key[currentSection]) {
-            setCurrentSection((prev) => prev + 1);
-            console.log("incremented current section");
-        }
         questions[qNum].answer = true;
-    }
+    
+        if (qNum === key[currentSection]) {
+            if (currentSection === 2) {
+                console.log("At section 2 - no further update");
+            } else {
+                setTimeout(() => {
+                    setDoorAnswer(true);
+                    setTimeout(() => {
+                        setDoorAnswer(false);
+                        setCurrentSection(prev => prev + 1);
+                    }, 5000);
+                    console.log("incremented current section");
+                }, 3000);
+            }
+        } else {
+            setWrongDoor(true);
+            setTimeout(() => {
+                setWrongDoor(false);
+            }, 5000);
+        }
+    }, [currentSection]);
     const [questions, setQuestions] = useState({
         1: { component: <TowersOfHanoi handleSubmit={handleSuccess} qNum={1} />, answer: false },
         2: { component: <MagicSquare handleSubmit={handleSuccess} qNum={2} />, answer: false },
-        3: { component: <Queens handleSubmit={handleSuccess} qNum={3} />, answer: false },
+        3: { component: <GeniusCipherGameUI handleSubmit={handleSuccess} qNum={3} />, answer: false },
         4: { component: <KenKen handleSubmit={handleSuccess} qNum={4} />, answer: false },
         5: { component: <Waterjug handleSubmit={handleSuccess} qNum={5} />, answer: false },
-        6: { component: <MagicSquare />, answer: false },
+        6: { component: <Coins />, answer: false },
         7: { component: <MagicSquare />, answer: false },
-        8: { component: <MagicSquare handleSubmit={handleSuccess} qNum={8} />, answer: false },
-        9: { component: <MagicSquare handleSubmit={handleSuccess} qNum={9} />, answer: false },
+        8: { component: <Coins/>, answer: false },
+        9: { component: <Coins />, answer: false },
     });
 
 
@@ -143,6 +164,12 @@ const Level2 = () => {
 
     return (
         <div className=" flex flex-col items-center">
+            {doorAnswer && <div className='absolute w-[60%] h-[500px] bg-white mt-28 z-50 bg-gradient-to-br from-blue-100 to-green-200' >
+                <div className="bg-white flex flex-col items-center justify-center gap-10 h-full p-8 rounded-lg shadow-lg text-center">
+                    <h1 className="text-8xl font-bold text-green-600 mb-4">Hurray!</h1>
+                    <p className="text-4xl font-bold text-gray-700">Well done! The correct door has been revealed. Get ready, Checkpoint {currentSection + 2} is just ahead!</p>
+                </div>
+            </div>}
 
             <div className=" -z-10 fixed w-screen h-screen top-0 bg-[url('12979917_5084836.jpg')] bg-cover bg-center bg-no-repeat  ">
             </div>
@@ -158,7 +185,7 @@ const Level2 = () => {
                     <p className="text-4xl font-bold text-green-400 w-1/4 flex justify-end">{formatTime(timeLeft)}</p>
                 </div>
                 <div className="px-7 h-16 grid grid-cols-3  w-full items-center">
-                    <p className="text-left font-bold text-4xl">Key: {key}</p>
+                    <p className="text-left font-bold text-4xl text-green-500 flex ">Key: <p className='flex mx-5'><span className={` px-2 flex ${currentSection<=0 ? "bg-black":"bg-green-400"}  text-white`}>{key[0]}</span><span className={` px-2 flex ${currentSection<=1 ? "bg-black":"bg-green-400"}  text-white`}>{key[1]}</span><span className={` px-2 flex ${currentSection<=2 ? "bg-black":"bg-green-400"}  text-white`}>{key[2]}</span></p></p>
                     <h1 className="text-3xl font-bold text-blue-400 text-center">
                         Checkpoint - {currentSection + 1}
                     </h1>
@@ -168,13 +195,14 @@ const Level2 = () => {
 
                 <div className="justify-around flex w-[80%] h-[400px]">
                     {groups[currentSection].map((qNum) => (
-                        <div className='flex w-1/3 justify-center '>
+                        <div className=' flex w-1/3 justify-center '>
                             {questions[qNum].answer ? (
-                                <div className='flex items-center justify-center  border border-red-600 w-full h-full'>
-                                    <p className='text-7xl text-white '>{qNum}</p>
+                                <div className={` flex items-center justify-center w-[70%] ${qNum === key[currentSection] ? "bg-green-500" : "bg-red-700"} border-red-600  h-full`}>
+                                    <CiUnlock className='fade-in text-9xl text-white' />
+                                    <p className='fade-out absolute  text-9xl text-white'>{qNum}</p>
                                 </div>) : (<div
                                     key={qNum}
-                                    className="rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+                                    className=" w-[70%] rounded-lg shadow-md hover:shadow-lg transition-shadow"
                                     onClick={() => {
                                         if (!openedDoors.includes(qNum) && openedDoors.length < 2) setOpenedDoors(prevDoors => [...prevDoors, qNum]);;
                                         setPresentDoor(qNum);
@@ -182,7 +210,7 @@ const Level2 = () => {
                                         console.log(openedDoors);
                                     }}
                                 >
-                                    <img src="gateclosed.png" alt="gate" className="w-full h-full mx-auto" />
+                                    <img src="gateclosed.png" alt="gate" className=" w-full h-full mx-auto object-cover" />
                                     {/* {questions[qNum].answer === true ?} */}
                                     <div className="text-lg font-semibold text-gray-700 mb-2">
                                         Question {qNum}
@@ -191,9 +219,9 @@ const Level2 = () => {
                                 {questions[qNum]}
                             </div> */}
                                     {(openedDoors.includes(qNum) || answeredOne) && presentDoor === qNum && doorClick &&
-                                        <div className='absolute inset-0 flex flex-col justify-center items-center border w-screen h-screen '>
+                                        <div className='z-50 absolute inset-0 flex flex-col justify-center items-center border w-screen h-screen '>
 
-                                            <div className='flex flex-col bg-black text-white w-[90%] h-[630px] '>
+                                            <div className='flex flex-col bg-black w-[90%] h-[630px] '>
                                                 <RxCross2 className='absolute text-4xl m-5 text-gray-300 self-end cursor-pointer'
                                                     onClick={(e) => {
                                                         e.stopPropagation();
@@ -215,7 +243,7 @@ const Level2 = () => {
 
                 </div>
 
-                <div className="text-center">
+                {/* <div className="text-center">
                     <button
                         onClick={() => { handleNext(); setOpenedDoors([]); }}
                         disabled={currentSection === 2}
@@ -226,7 +254,10 @@ const Level2 = () => {
                     >
                         {currentSection === 2 ? 'Last Section' : 'Next Section'}
                     </button>
-                </div>
+                </div> */}
+                {wrongDoor && <div className='pt-5'>
+                    <p className='fade-out text-3xl text-red-400'>Sorry the unlocked door key has not matched with yours.....!</p>
+                </div>}
             </div>
         </div>
     );
