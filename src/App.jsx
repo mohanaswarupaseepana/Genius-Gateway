@@ -14,6 +14,7 @@ import Level3 from './components/Level3.jsx'
 import Waterjug from './components/Waterjug.jsx'
 import Coins from './components/Coins.jsx'
 import BridgeTorch from './components/BridgeTorch.jsx'
+import MissingGrid from './components/MissingGrid.jsx'
 const App = () => {
   return (
     <Router>
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/coins" element={<Coins/>}/>
         <Route path="/cipher" element={<Cipher/>}/>
         <Route path="/bridgetorch" element={<BridgeTorch/>}/>
+        <Route path="/missinggrid" element={<MissingGrid/>}/>
       </Routes>
     </Router>
   )

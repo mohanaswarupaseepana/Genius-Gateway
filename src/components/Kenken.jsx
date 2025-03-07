@@ -95,14 +95,20 @@ const KenKen = ({ handleSubmit, qNum }) => {
       <div className='w-1/2 h-full flex flex-col px-6 gap-4 overflow-y-scroll py-5'>
         <div>
           <h2 className="text-xl font-semibold text-gray-700">Objective</h2>
-          <p className="text-gray-600">Fill the 3x3 grid so each row and column contains numbers 1-3 exactly once, while satisfying the cage conditions.</p>
+          <p className="text-gray-600">Fill a 3×3 grid using the digits 1, 2, and 3 so that:
+
+Every row and every column contains each digit exactly once.
+Each outlined "cage" (group of cells) satisfies its arithmetic clue. Each cage shows a target number along with an operator (or just a number for single-cell cages), and the digits in that cage must combine using the indicated operation to equal the target.</p>
         </div>
         <div>
           <h2 className="text-xl font-semibold text-gray-700">Rules</h2>
-          <ul className="list-disc list-inside text-gray-600">
-            <li>Each row and column must contain numbers 1-3 exactly once.</li>
-            <li>Follow the given arithmetic cage constraints.</li>
-          </ul>
+          <p className="list-disc list-inside text-gray-600">
+            1️⃣Every row and every column must include the digits 1, 2, and 3 with no repetition.<br/>
+            2️⃣The grid is divided into cages, each with a target number and an arithmetic operator (e.g., +, −).<br/>
+            3️⃣For addition (+): The sum of all numbers in the cage must equal the target.<br/>
+            4️⃣For subtraction (−) (usually with 2 cells): The difference  must equal the target.<br/>
+            🔄 Reset Button: If stuck, click the reset button to restart.
+          </p>
         </div>
       </div>
       <div className='w-1/2 h-full flex flex-col justify-center items-center'>
