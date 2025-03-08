@@ -336,15 +336,15 @@ const questions4 = {
 const questions5 = {
   1: {
     right: {
-      text: "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
+      text: "What term is used to describe a point in a network, where data is sent or received, and can represent either a physical device or a logical entity in systems like graphs or trees?",
       hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
-      len: 5,
+      len: 4,
       hintNum: 0
     },
     down: {
-      text: "In computer science and mathematics, which term is used to represent the difference or change in a variable, often appearing in equations or algorithms to calculate differences between values?",
+      text: "What term refers to written or recorded information, often used as a reminder or reference, and is commonly found in classrooms, meetings, or digital apps?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
@@ -354,23 +354,23 @@ const questions5 = {
   },
   2: {
     right: {
-      text: "In programming, I can be called with a status code to terminate execution, and in some cases, I clean up resources before doing so. In shell scripts, I signify the end of a process. What am I?",
+      text: "Which innovative company, named after a famous inventor, has become a leader in electric vehicles, solar energy, and space exploration?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
     }
   },
   3: {
-    right: {
-      text: "Which communication system, once widely used for sending written messages over long distances, relied on teleprinters and was commonly used by businesses before the advent of fax and email?",
+    down: {
+      text: "Which web browser, known for its speed and support for modern web standards, is also famous for being developed by a software company that shares its name with a famous music genre?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
     }
   },
   4: {
-    right: {
-      text: "In operating systems, I can be set to send a signal after a specified time interval, often used to interrupt sleeping processes or enforce timeouts. What am I?",
+    down: {
+      text: "What devices are often used for long-term data retention, can be either volatile or non-volatile, and is found in both computers and external drives?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
@@ -379,24 +379,14 @@ const questions5 = {
   },
   5: {
     down: {
-      text: "What word describes the action of forcefully removing an unauthorized user from a system or network?",
+      text: "What is the reverse word of term which is used for a conversation or exchange of messages, often taking place in a digital interface, where responses are instantaneous and typically used for both casual and professional communication?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
-      len: 5,
+      len: 4,
       hintNum: 0
     },
     // down: { text: "Sun rises in the?", answer: "EAST" }
-  },
-  6: {
-    down: {
-      text: "What word means to express something verbally, and can also relate to speech synthesis in AI and voice assistants?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
-      len: 5,
-      hintNum: 0
-    }
   }
 };
 
