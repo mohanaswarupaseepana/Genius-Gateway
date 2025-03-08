@@ -12,6 +12,7 @@ import "../index.css";
 import { useCallback } from 'react';
 import GeniusCipherGameUI from './GeniusCipher';
 import Coins from './Coins';
+import BridgeTorch from './BridgeTorch';
 
 let key = [];
 const Level2 = () => {
@@ -89,7 +90,7 @@ const Level2 = () => {
         5: { component: <Waterjug handleSubmit={handleSuccess} qNum={5} />, answer: false },
         6: { component: <Coins />, answer: false },
         7: { component: <MagicSquare />, answer: false },
-        8: { component: <Coins/>, answer: false },
+        8: { component: <BridgeTorch/>, answer: false },
         9: { component: <Coins />, answer: false },
     });
 

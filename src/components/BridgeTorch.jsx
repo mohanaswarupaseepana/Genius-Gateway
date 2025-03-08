@@ -65,7 +65,7 @@ const BridgeTorch = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen flex">
+    <div className="p-6 bg-gray-100 h-full flex">
       <div className="w-1/3 p-4 bg-white shadow-lg rounded-lg">
         <h2 className="text-xl font-bold mb-4">Bridge and Torch Puzzle</h2>
         <p className="mb-2">Rules:</p>
@@ -88,7 +88,7 @@ const BridgeTorch = () => {
         </button>
       </div>
 
-      <div className="w-2/3 p-4 flex flex-col items-center">
+      <div className="w-2/3 p-4 flex flex-col items-center overflow-x-scroll">
         {/* Left and Right Side Human Containers */}
         <div className="flex justify-between w-full max-w-xl mb-6">
           <div className="flex flex-col items-center">
