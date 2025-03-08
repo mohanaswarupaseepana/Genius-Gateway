@@ -108,7 +108,7 @@ const questions1 = {
 const questions2 = {
   1: {
     right: {
-      text: "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
+      text: "Which JavaScript library is used for building user interfaces with a component-based architecture?",
       hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
@@ -116,7 +116,7 @@ const questions2 = {
       hintNum: 0
     },
     down: {
-      text: "In computer science and mathematics, which term is used to represent the difference or change in a variable, often appearing in equations or algorithms to calculate differences between values?",
+      text: "What term is used in networking and web development to define the path taken by data packets or the structure of URLs in a web application?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
@@ -126,7 +126,7 @@ const questions2 = {
   },
   2: {
     right: {
-      text: "In programming, I can be called with a status code to terminate execution, and in some cases, I clean up resources before doing so. In shell scripts, I signify the end of a process. What am I?",
+      text: "Which term, derived from Greek, is commonly used to refer to both the branch of medicine dealing with musculoskeletal issues and a shorthand for specialists in this field?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
@@ -134,24 +134,24 @@ const questions2 = {
   },
   3: {
     right: {
-      text: "Which communication system, once widely used for sending written messages over long distances, relied on teleprinters and was commonly used by businesses before the advent of fax and email?",
+      text: "What is the standard term for the address used to access a resource on the internet?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+      { text: "Hello I am Hint 3", used: false },], len: 3, hintNum: 0
     }
   },
   4: {
     right: {
-      text: "In operating systems, I can be set to send a signal after a specified time interval, often used to interrupt sleeping processes or enforce timeouts. What am I?",
+      text: "What key on a keyboard is used to switch between different open applications or windows?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+      { text: "Hello I am Hint 3", used: false },], len: 3, hintNum: 0
     },
     // down: { text: "Sun rises in the?", answer: "EAST" }
   },
   5: {
-    down: {
-      text: "What word describes the action of forcefully removing an unauthorized user from a system or network?",
+    right: {
+      text: "What is the term for a system used to send, receive, and store digital messages over the internet?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
@@ -161,12 +161,32 @@ const questions2 = {
     // down: { text: "Sun rises in the?", answer: "EAST" }
   },
   6: {
-    down: {
-      text: "What word means to express something verbally, and can also relate to speech synthesis in AI and voice assistants?",
+    right: {
+      text: "What word refers to the process of doing something intentionally or taking action in response to a situation?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
-      len: 5,
+      len: 3,
+      hintNum: 0
+    }
+  }
+  7: {
+    down: {
+      text: "What is the name of the anonymous network browser used to access the dark web securely?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },],
+      len: 3,
+      hintNum: 0
+    }
+  }
+  8: {
+    down: {
+      text: "Which computer component provides temporary storage for data and programs, allowing for fast access and processing but loses its content when power is turned off?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },],
+      len: 3,
       hintNum: 0
     }
   }
