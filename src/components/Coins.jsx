@@ -201,19 +201,12 @@ const Coins = () => {
           </p>
           <h2 style={{ color: '#00e5ff', marginTop: '20px' }}>Rules:</h2>
           <ul style={{ marginLeft: '20px', marginBottom: '15px' }}>
-            <li>Coins are initially separated into three stacks by denomination.</li>
-            <li>You can drag coins between the stacks and the groups.</li>
-            <li>
-              All coins must be moved out of the stacks (each stack must be empty) and the groups must each total{' '}
-              <strong>{halfSum}</strong> (Total: {totalSum}).
+            <li>1️⃣Coins are initially separated into three stacks by denomination.</li>
+            <li>2️⃣You can drag coins between the stacks and the groups.</li>
+            <li>3️⃣All coins must be moved out of the stacks (each stack must be empty).
             </li>
           </ul>
-          <h2 style={{ color: '#00e5ff', marginTop: '20px' }}>Hints:</h2>
-          <ul style={{ marginLeft: '20px' }}>
-            <li>Drag coins from the appropriate stack (1/-, 5/-, 10/-) into the groups.</li>
-            <li>If needed, move coins back to the stack to re-adjust.</li>
-            <li>Check your totals by moving all coins out of the stacks.</li>
-          </ul>
+          
           {message && (
             <div style={{ color: '#76ff03', fontSize: '1.5rem', marginTop: '20px', fontWeight: 'bold' }}>
               {message}

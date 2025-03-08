@@ -53,16 +53,14 @@ const MissingGrid = () => {
       <div className="w-1/2 p-6 bg-gray-100">
         <h1 className="text-3xl font-bold mb-4">Puzzle Description</h1>
         <p className="mb-4">
-          Solve the puzzle by filling in the missing numbers in the grid.
-          Observe the pattern carefully and enter the correct values in the missing cells.
-          Click <strong>Submit</strong> when you are done.
+        In this 3×3 grid puzzle, you are presented with a set of numbers where two cells are empty. Your challenge is to analyze the relationships between the numbers and determine the missing values. Notice that several cells contain perfect squares—for example, 25 (5²), 36 (6²), 49 (7²), 64 (8²), 81 (9²), and 100 (10²). Although one cell (44) does not immediately appear as a perfect square, the overall grid hints at a pattern based on square numbers and their relationships.
         </p>
         <h2 className="text-2xl font-semibold mb-2">Rules</h2>
-        <ul className="list-disc list-inside">
-          <li>Observe the pattern in the grid.</li>
-          <li>Fill in the missing values correctly.</li>
-          <li>The puzzle grid is on the right side.</li>
-        </ul>
+        <p>
+          1️⃣Study all rows and columns. Many numbers are perfect squares. Look for patterns or relationships (such as differences, sums, or sequences) that might help explain how the numbers relate to each other.<br/>
+          2️⃣Enter your answers in the two empty cells.<br/>
+          3️⃣Once you have filled in the missing values, click the Submit button.<br/>
+          </p>
       </div>
 
       {/* Right Side: 3×3 Puzzle Grid rendered as a table */}

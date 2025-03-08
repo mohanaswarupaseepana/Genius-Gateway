@@ -8,7 +8,6 @@ import Level2 from "./components/Level2.jsx"
 import Queens from "./components/Queens.jsx"
 import Welcome from "./components/Welcome.jsx"
 import TowersOfHanoi from './components/TowersOfHanoi.jsx'
-import Cipher from './components/Cipher.jsx'
 import Kenken from './components/Kenken.jsx'
 import Level3 from './components/Level3.jsx'
 import Waterjug from './components/Waterjug.jsx'
@@ -33,7 +32,6 @@ const App = () => {
         <Route path="/level3" element={<Queens/>}/>
         <Route path="/waterjug" element={<Waterjug/>}/>
         <Route path="/coins" element={<Coins/>}/>
-        <Route path="/cipher" element={<Cipher/>}/>
         <Route path="/bridgetorch" element={<BridgeTorch/>}/>
         <Route path="/missinggrid" element={<MissingGrid/>}/>
         <Route path="/geniuscipher" element={<GeniusCipherGameUI/>}/>
