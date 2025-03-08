@@ -12,6 +12,8 @@ import "../index.css";
 import { useCallback } from 'react';
 import GeniusCipherGameUI from './GeniusCipher';
 import Coins from './Coins';
+import BridgeTorch from './BridgeTorch';
+import Sudoku from './Sudoku';
 
 let key = [];
 const Level2 = () => {
@@ -84,13 +86,13 @@ const Level2 = () => {
     const [questions, setQuestions] = useState({
         1: { component: <TowersOfHanoi handleSubmit={handleSuccess} qNum={1} />, answer: false },
         2: { component: <MagicSquare handleSubmit={handleSuccess} qNum={2} />, answer: false },
-        3: { component: <GeniusCipherGameUI handleSubmit={handleSuccess} qNum={3} />, answer: false },
+        3: { component: <Sudoku handleSubmit={handleSuccess} qNum={3}/>, answer: false },
         4: { component: <KenKen handleSubmit={handleSuccess} qNum={4} />, answer: false },
         5: { component: <Waterjug handleSubmit={handleSuccess} qNum={5} />, answer: false },
         6: { component: <Coins />, answer: false },
         7: { component: <MagicSquare />, answer: false },
-        8: { component: <Coins/>, answer: false },
-        9: { component: <Coins />, answer: false },
+        8: { component: <BridgeTorch/>, answer: false },
+        9: { component: <GeniusCipherGameUI handleSubmit={handleSuccess} qNum={3} />, answer: false }
     });
 
 
