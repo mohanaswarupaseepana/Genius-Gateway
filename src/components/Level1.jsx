@@ -270,7 +270,7 @@ const questions3 = {
 const questions4 = {
   1: {
     right: {
-      text: "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
+      text: "Which device, named after a small rodent, has become essential for navigating graphical user interfaces and often uses a sensor or ball to detect movement?",
       hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
@@ -278,7 +278,7 @@ const questions4 = {
       hintNum: 0
     },
     down: {
-      text: "In computer science and mathematics, which term is used to represent the difference or change in a variable, often appearing in equations or algorithms to calculate differences between values?",
+      text: "What term is used in programming or version control systems to combine changes from different sources into a single, unified version?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
@@ -288,7 +288,7 @@ const questions4 = {
   },
   2: {
     right: {
-      text: "In programming, I can be called with a status code to terminate execution, and in some cases, I clean up resources before doing so. In shell scripts, I signify the end of a process. What am I?",
+      text: "What is the name of the popular open-source desktop environment used in Linux, known for its user-friendly interface and customization options?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
@@ -296,15 +296,15 @@ const questions4 = {
   },
   3: {
     right: {
-      text: "Which communication system, once widely used for sending written messages over long distances, relied on teleprinters and was commonly used by businesses before the advent of fax and email?",
+      text: "What is the reverse word of term which is used to describe the difference between the highest and lowest values in a dataset or a set of numbers?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
     }
   },
   4: {
-    right: {
-      text: "In operating systems, I can be set to send a signal after a specified time interval, often used to interrupt sleeping processes or enforce timeouts. What am I?",
+    down: {
+      text: "What Greek letter is commonly used to represent the sum of a series or the sum of a set of numbers in mathematics?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
@@ -313,7 +313,7 @@ const questions4 = {
   },
   5: {
     down: {
-      text: "What word describes the action of forcefully removing an unauthorized user from a system or network?",
+      text: "What key on a keyboard is used to submit or confirm an action, such as sending a message or executing a command?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
@@ -323,12 +323,12 @@ const questions4 = {
     // down: { text: "Sun rises in the?", answer: "EAST" }
   },
   6: {
-    down: {
-      text: "What word means to express something verbally, and can also relate to speech synthesis in AI and voice assistants?",
+    right: {
+      text: "In computing, what term refers to a storage area used to temporarily hold files or data that are no longer needed?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
-      len: 5,
+      len: 3,
       hintNum: 0
     }
   }
