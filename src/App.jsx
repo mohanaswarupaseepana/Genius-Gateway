@@ -14,11 +14,8 @@ import Level3 from './components/Level3.jsx'
 import Waterjug from './components/Waterjug.jsx'
 import Coins from './components/Coins.jsx'
 import BridgeTorch from './components/BridgeTorch.jsx'
-<<<<<<< HEAD
 import MissingGrid from './components/MissingGrid.jsx'
-=======
 import GeniusCipherGameUI from './components/GeniusCipher.jsx'
->>>>>>> ff055a3c3e98a222de03a10ea5b9c9865f636f1f
 const App = () => {
   return (
     <Router>
@@ -37,12 +34,9 @@ const App = () => {
         <Route path="/coins" element={<Coins/>}/>
         <Route path="/cipher" element={<Cipher/>}/>
         <Route path="/bridgetorch" element={<BridgeTorch/>}/>
-<<<<<<< HEAD
         <Route path="/missinggrid" element={<MissingGrid/>}/>
-=======
         <Route path="/geniuscipher" element={<GeniusCipherGameUI/>}/>
 
->>>>>>> ff055a3c3e98a222de03a10ea5b9c9865f636f1f
       </Routes>
     </Router>
   )
