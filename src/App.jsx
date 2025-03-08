@@ -32,8 +32,8 @@ const App = () => {
         <Route path="/waterjug" element={<Waterjug/>}/>
         <Route path="/coins" element={<Coins/>}/>
         <Route path="/bridgetorch" element={<BridgeTorch/>}/>
-        <Route path="/missinggrid" element={<MissingGrid/>}/>
         <Route path="/geniuscipher" element={<GeniusCipherGameUI/>}/>
+        <Route path="/missinggrid" element={<MissingGrid/>}/>
 
       </Routes>
     </Router>
