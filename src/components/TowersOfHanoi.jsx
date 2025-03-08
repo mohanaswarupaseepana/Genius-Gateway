@@ -100,14 +100,18 @@ const TowersOfHanoi = ({ handleSubmit, qNum }) => {
         <div className="inline-flex w-full py-6  bg-transparent justify-evenly ">
           <div className="flex flex-col gap-4 w-1/3 py-5 text-amber-400 ">
           <div>
-            <span className="font-bold text-3xl text--500">Objective:</span><br/><span className="text-cyan-100 pl-10"> Move all four disks from the first rod to the third rod while following the given constraints.</span>
+            <span className="font-bold text-3xl text--500">Objective:</span><br/><span className="text-cyan-100 pl-10">The goal of the Towers of Hanoi puzzle is to move an entire stack of disks from one peg (or rod) to another while maintaining the correct order. For a puzzle with 4 disks, you start with all disks arranged in descending order (largest at the bottom, smallest at the top) on a starting peg. Your task is to transfer the entire tower to the destination peg in as few moves as possible. </span>
           </div>
           <div>
-            <span className="font-bold text-3xl text-amber-400">Instructions:</span><br/><span className="text-cyan-100"> 1️⃣ Only one disk can be moved at a time.<br/>
+            <span className="font-bold text-3xl text-amber-400">Rules:</span><br/><span className="text-cyan-100"> 1️⃣ Only one disk can be moved at a time.<br/>
 2️⃣ A larger disk cannot be placed on top of a smaller disk.<br/>
-3️⃣ You can only move the top disk of any rod at a time.</span>
+3️⃣ You can only move the top disk of any rod at a time.<br/>
+4️⃣ There are three pegs: a Source peg (where all disks begin), an Auxiliary peg (a helper peg), and a Destination peg (which is coloured with green).
+</span>
+
           </div>
         </div>
+      
           <div className = "flex w-2/3 gap-10 items-center justify-around ">
             <div
               className="relative items-end h-[60vh] border-b-[20px] border rounded-b-md border-red-500 w-[20%]"

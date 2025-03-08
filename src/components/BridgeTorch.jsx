@@ -91,7 +91,7 @@ const BridgeTorch = () => {
       <div className="w-2/3 p-4 flex flex-col items-center overflow-x-scroll">
         {/* Left and Right Side Human Containers */}
         <div className="flex justify-between w-full max-w-xl mb-6">
-          <div className="flex flex-col items-center">
+          <div className="flex space-x-4 items-center">
             {leftSide.map((p) => (
               <span key={p.name} onClick={() => handleSelect(p)}
                 className={`cursor-pointer flex flex-col items-center ${selected.includes(p) ? "text-blue-500" : "text-black"}`}>
@@ -101,13 +101,13 @@ const BridgeTorch = () => {
           </div>
 
           {/* Bridge Area */}
-          <div className="relative flex items-center justify-center w-2/3 h-32">
+          <div className="relative flex items-center justify-center w-1/2 h-25 border">
             {/* Bridge Line */}
             <div className="absolute w-full h-2 bg-gray-700 rounded-lg top-1/2 transform -translate-y-1/2" />
             <span className="absolute text-white text-sm font-bold">🌉 Bridge</span>
           </div>
 
-          <div className="flex flex-col items-center">
+          <div className="flex space-x-4 items-center">
             {rightSide.map((p) => (
               <span key={p.name} onClick={() => handleSelect(p)}
                 className={`cursor-pointer flex flex-col items-center ${selected.includes(p) ? "text-blue-500" : "text-black"}`}>

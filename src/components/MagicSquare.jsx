@@ -73,23 +73,25 @@ useEffect(() => {
       <div className='w-1/2 h-full flex flex-col px-6 gap-4 overflow-y-scroll py-5'>
         <div className=" ">
           <h2 className="text-xl font-semibold text-gray-700">Objective</h2>
-          <p className="text-gray-600"> The 8 Queens puzzle is a famous combinatorial problem in chess. It challenges players to position 8 queens so that none of them share the same row, column, or diagonal. Place all 8 queens so that no two attack each other.</p>
+          <p className="text-gray-600"> A magic square is a grid where the numbers are arranged so that every row, every column, and both main diagonals add up to the same number, known as the magic constant. In a standard 3×3 magic square, you use the numbers 1 through 9 without repeating any, and the magic constant is 15 (since the total sum of numbers 1–9 is 45, and 45 divided by 3 equals 15). This puzzle isn’t just a fun challenge—it also has a rich history in mathematics and various cultures.</p>
         </div>
         <div className="">
           <h2 className="text-xl font-semibold text-gray-700">Rules</h2>
           <ul className="list-disc list-inside text-gray-600">
-            <li>Each row must contain exactly one queen.</li>
-            <li>Queens cannot be in the same column.</li>
-            <li>Queens cannot share diagonals.</li>
+            <li>Use each number from 1 to 9 exactly once.</li>
+            <li>No number should be repeated.</li>
+            <li>The sum of the numbers in each row ,each column and both main diagonals must equal 15</li>
           </ul>
         </div>
         <div className="">
           <h2 className="text-xl font-semibold text-gray-700">How to Play</h2>
-          <p className="text-gray-600">1️⃣ Click on any square in a row to place a queen.<br />
-            2️⃣ If a queen is already in that row, she will move to the selected column.<br />
-            3️⃣ If a queen is in a conflicting position, the square will be highlighted in red.<br />
-            4️⃣ Keep adjusting until all conflicts are resolved.<br />
-            5️⃣ Once a valid solution is found, you win! 🎉<br />
+          <p className="text-gray-600">1️⃣ Begin filling in the  cells with logical reasoning. As you place each number, consider how it affects the sum of its row, column, and diagonal.<br />
+            2️⃣ After placing a few numbers, start calculating the sums of the partially completed rows, columns, and diagonals.<br />
+            3️⃣ If you notice a row, column, or diagonal cannot possibly add up to 15 given the remaining numbers, adjust your placements.
+            <br />
+            4️⃣ Continue filling in the grid until all cells are occupied.<br />
+            5️⃣ Once completed, verify that each row, each column, and both diagonals sum to 15.
+            If all conditions are met, congratulations—you’ve successfully created a magic square 🎉<br />
 
             🔄 Reset Button: If stuck, click the reset button to restart.</p>
         </div>
