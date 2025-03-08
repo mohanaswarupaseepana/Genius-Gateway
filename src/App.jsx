@@ -16,6 +16,7 @@ import Coins from './components/Coins.jsx'
 import BridgeTorch from './components/BridgeTorch.jsx'
 import MissingGrid from './components/MissingGrid.jsx'
 import GeniusCipherGameUI from './components/GeniusCipher.jsx'
+import Sudoku from './components/Sudoku.jsx'
 const App = () => {
   return (
     <Router>
@@ -36,8 +37,8 @@ const App = () => {
         <Route path="/bridgetorch" element={<BridgeTorch/>}/>
         <Route path="/missinggrid" element={<MissingGrid/>}/>
         <Route path="/geniuscipher" element={<GeniusCipherGameUI/>}/>
-
-      </Routes>
+        <Route path="/sudoku" element={<Sudoku/>}/>  
+    </Routes>
     </Router>
   )
 }
