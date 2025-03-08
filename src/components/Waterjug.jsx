@@ -15,7 +15,7 @@ function Waterjug({ handleSubmit, qNum }) {
   };
   useEffect(() => {
     console.log(jugs);
-    if (jugs.jug2 === 4) {
+    if (jugs.jug1===6 && jugs.jug2 === 4 && jugs.jug3===3) {
       console.log("Success");
       handleSubmit(qNum);
     }
@@ -31,10 +31,10 @@ function Waterjug({ handleSubmit, qNum }) {
         [toJug]: prevState[toJug] + transferAmount,
       }));
     }
-    // if(jugs.jug2===4){
-    //   console.log("Success");
-    // }
-    // console.log(jugs);
+    if(jugs.jug2===4){
+      console.log("Success");
+    }
+    console.log(jugs);
   };
 
   // Reset the puzzle to its initial state
@@ -61,11 +61,11 @@ function Waterjug({ handleSubmit, qNum }) {
               <li>Empty a jug completely.</li>
               <li>Transfer water between two jugs until one is full or the other is empty.</li>
             </ul>
-            Try to figure out how to achieve the target amount of water in one of the jugs.
+            Try to figure out how to achieve the target amount of water in jugs.
           </div>
           <div className="bg-white p-4 rounded-lg shadow-md text-gray-800 w-full">
             <h2 className="font-semibold text-xl mb-2">Goal</h2>
-            <p>Try to find the correct sequence of actions to measure the required amount of water.</p>
+            <p>Try to find the correct sequence of actions to measure the required amount of water i.e <strong><b>outcome</b><br/>jug1-6 Liters<br/> jug2-4 Liters<br/>jug3-3 Liters<br/></strong></p>
           </div>
         </div>
 

@@ -64,8 +64,7 @@ const validateSolution = (grid) => {
 
 const KenKen = ({ handleSubmit, qNum }) => {
   const [grid, setGrid] = useState(Array(size).fill().map(() => Array(size).fill("")));
-  const [message, setMessage] = useState("Fill the grid with numbers 1-3, ensuring each row and column contains each number exactly once and follows cage rules.");
-
+  
   useEffect(() => {
     if (grid.flat().every(cell => cell !== "")) {
       if (validateSolution(grid)) {
@@ -113,7 +112,6 @@ Each outlined "cage" (group of cells) satisfies its arithmetic clue. Each cage s
       </div>
       <div className='w-1/2 h-full flex flex-col justify-center items-center'>
         <h1 className="text-4xl font-bold mb-4 text-gray-800">3x3 KenKen</h1>
-        <p className="mb-6 text-gray-600">{message}</p>
         <div className="grid grid-cols-3 bg-gray-300">
           {grid.map((row, rowIndex) =>
             row.map((cell, colIndex) => (

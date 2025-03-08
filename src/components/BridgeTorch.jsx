@@ -119,7 +119,7 @@ const BridgeTorch = () => {
 
         {/* Torch Movement (only in Right Side) */}
         <div className="absolute flex items-center justify-center w-10 h-10 transition-all duration-500"
-          style={{ left: torch === "right" ? "80%" : "50%", top: "10%" }}>
+          style={{ left: torch === "right" ? "80%" : "50%", top: "5%" }}>
           <img
             src="./flame_torch.png"
             alt="Torch"
