@@ -194,7 +194,7 @@ const questions2 = {
 const questions3 = {
   1: {
     right: {
-      text: "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
+      text: "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?",
       hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
@@ -202,7 +202,7 @@ const questions3 = {
       hintNum: 0
     },
     down: {
-      text: "In computer science and mathematics, which term is used to represent the difference or change in a variable, often appearing in equations or algorithms to calculate differences between values?",
+      text: "What is the smallest unit of an image displayed on a screen, often used to measure the resolution of digital images?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
@@ -212,32 +212,32 @@ const questions3 = {
   },
   2: {
     right: {
-      text: "In programming, I can be called with a status code to terminate execution, and in some cases, I clean up resources before doing so. In shell scripts, I signify the end of a process. What am I?",
+      text: "What is the term for a visual representation of something, often created digitally or captured by a camera?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
+      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
     }
   },
   3: {
     right: {
-      text: "Which communication system, once widely used for sending written messages over long distances, relied on teleprinters and was commonly used by businesses before the advent of fax and email?",
+      text: "Which bitwise operation, commonly used in programming, results in true if and only if the number of true inputs is odd?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+      { text: "Hello I am Hint 3", used: false },], len: 3, hintNum: 0
     }
   },
   4: {
-    right: {
-      text: "In operating systems, I can be set to send a signal after a specified time interval, often used to interrupt sleeping processes or enforce timeouts. What am I?",
+    down: {
+      text: "Which Indian Prime Minister, known for his ambitious projects like Make in India and Digital India, was once a key figure in Gujarat's politics before assuming the national leadership in 2014?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+      { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
     },
     // down: { text: "Sun rises in the?", answer: "EAST" }
   },
   5: {
-    down: {
-      text: "What word describes the action of forcefully removing an unauthorized user from a system or network?",
+    right: {
+      text: "Which operating system, often favored by developers and system administrators, is known for being highly customizable and having a command-line interface as a core feature?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
@@ -248,11 +248,21 @@ const questions3 = {
   },
   6: {
     down: {
-      text: "What word means to express something verbally, and can also relate to speech synthesis in AI and voice assistants?",
+      text: "Which branch of engineering, deals with the design and development of electrical systems, circuits, and electronic devices?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
-      len: 5,
+      len: 3,
+      hintNum: 0
+    }
+  }
+  7: {
+    down: {
+      text: "What term is used to describe the process of executing a program or script, often initiated by a user or an automated system?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },],
+      len: 3,
       hintNum: 0
     }
   }
