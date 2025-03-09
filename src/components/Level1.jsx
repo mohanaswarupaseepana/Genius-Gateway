@@ -109,17 +109,17 @@ const questions2 = {
   1: {
     right: {
       text: "Which JavaScript library is used for building user interfaces with a component-based architecture?",
-      hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
-      { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
-      { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
+      hints: [{ text: "This library uses a virtual DOM to optimize rendering performance.", used: false },
+      { text: "Components in this library can be functional or class-based and follow a unidirectional data flow.", used: false },
+      { text: "The library's logo is a blue atom, symbolizing its reactive nature.", used: false },],
       len: 5,
       hintNum: 0
     },
     down: {
       text: "What term is used in networking and web development to define the path taken by data packets or the structure of URLs in a web application?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: "In web development, this term defines how requests are handled by mapping URLs to specific handlers or controllers.", used: false },
+      { text: " In networking, it refers to the path data packets take from source to destination, often involving routers and IP addresses.", used: false },
+      { text: " It’s a five-letter word starting with R, commonly used in frameworks like Express.js and React Router.", used: false },],
       len: 5,
       hintNum: 0
     }
@@ -127,34 +127,34 @@ const questions2 = {
   2: {
     right: {
       text: "Which term, derived from Greek, is commonly used to refer to both the branch of medicine dealing with musculoskeletal issues and a shorthand for specialists in this field?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
+      hints: [{ text: "This term comes from the Greek word meaning straight or correct.", used: false },
+      { text: "It is commonly associated with treating bone, joint, and spine disorders.", used: false },
+      { text: "The full term often appears in hospitals as Orthopedic Surgeon or Orthopedist.", used: false },], len: 4, hintNum: 0
     }
   },
   3: {
     right: {
       text: "What is the standard term for the address used to access a resource on the internet?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 3, hintNum: 0
+      hints: [{ text: "This term refers to a reference or locator used to identify and retrieve resources on a network, often starting with http or https.", used: false },
+      { text: "It’s a string of characters that specifies the location of a web page or file on the internet, commonly seen in the address bar of a browser.", used: false },
+      { text: "It’s a three-letter abbreviation, starting with U, that stands for Uniform Resource Locator.", used: false },], len: 3, hintNum: 0
     }
   },
   4: {
     right: {
       text: "What key on a keyboard is used to switch between different open applications or windows?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 3, hintNum: 0
+      hints: [{ text: "This key, when combined with Alt on Windows or Command on Mac, cycles through open applications.", used: false },
+      { text: "It’s also used for indentation in text editors and moving between form fields in web browsers.", used: false },
+      { text: "The key’s name has three letters and sounds like a short form of tablet.", used: false },], len: 3, hintNum: 0
     },
     // down: { text: "Sun rises in the?", answer: "EAST" }
   },
   5: {
     right: {
       text: "What is the term for a system used to send, receive, and store digital messages over the internet?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: "This system uses protocols like SMTP, IMAP, and POP to transmit and retrieve digital messages.", used: false },
+      { text: "It allows users to send text, images, and attachments instantly and usually requires an @ symbol in the address.", used: false },
+      { text: "The term is a combination of electronic and mail.", used: false },],
       len: 5,
       hintNum: 0
     },
@@ -163,9 +163,9 @@ const questions2 = {
   6: {
     right: {
       text: "What word refers to the process of doing something intentionally or taking action in response to a situation?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: "This word can describe a formal law passed by a government or a conscious decision to do something.", used: false },
+      { text: "It’s often used to describe what performers do on stage or what a person does when responding to an event.", used: false },
+      { text: "It’s a three-letter word that starts with A   and means to take action", used: false },],
       len: 3,
       hintNum: 0
     }
@@ -173,9 +173,9 @@ const questions2 = {
   7: {
     down: {
       text: "What is the name of the anonymous network browser used to access the dark web securely?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: "This browser uses a technique called onion routing to conceal a user’s identity by encrypting traffic and bouncing it through a series of relays.", used: false },
+      { text: "It allows users to access .onion websites and is often associated with secure, anonymous communication over the internet.", used: false },
+      { text: "The browser's name is a three-letter acronym standing for The Onion Router.", used: false },],
       len: 3,
       hintNum: 0
     }
@@ -183,9 +183,9 @@ const questions2 = {
   8: {
     down: {
       text: "Which computer component provides temporary storage for data and programs, allowing for fast access and processing but loses its content when power is turned off?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: " This component is a type of volatile memory, meaning its data is lost when the computer is powered off, but it allows quick read and write access for running programs.", used: false },
+      { text: "It acts as the computer's short-term memory, temporarily holding data that the CPU needs to access quickly.", used: false },
+      { text: " It’s a three-letter word starting with R, commonly measured in gigabytes (GB) and crucial for multitasking and performance.", used: false },],
       len: 3,
       hintNum: 0
     }
