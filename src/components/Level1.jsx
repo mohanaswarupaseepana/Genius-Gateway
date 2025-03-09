@@ -108,7 +108,7 @@ const questions1 = {
 const questions2 = {
   1: {
     right: {
-      text: "Which JavaScript library is used for building user interfaces with a component-based architecture?",
+      text: "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
       hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
@@ -116,7 +116,7 @@ const questions2 = {
       hintNum: 0
     },
     down: {
-      text: "What term is used in networking and web development to define the path taken by data packets or the structure of URLs in a web application?",
+      text: "In computer science and mathematics, which term is used to represent the difference or change in a variable, often appearing in equations or algorithms to calculate differences between values?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
@@ -126,32 +126,32 @@ const questions2 = {
   },
   2: {
     right: {
-      text: "what is the reverse word of term, derived from Greek, is commonly used to refer to both the branch of medicine dealing with musculoskeletal issues and a shorthand for specialists in this field?",
+      text: "In programming, I can be called with a status code to terminate execution, and in some cases, I clean up resources before doing so. In shell scripts, I signify the end of a process. What am I?",
+      hints: [{ text: "Hello I am Hint 1", used: false },
+      { text: "Hello I am Hint 2", used: false },
+      { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
+    }
+  },
+  3: {
+    right: {
+      text: "Which communication system, once widely used for sending written messages over long distances, relied on teleprinters and was commonly used by businesses before the advent of fax and email?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
     }
   },
-  3: {
-    right: {
-      text: "What is the standard term for the address used to access a resource on the internet?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 3, hintNum: 0
-    }
-  },
   4: {
     right: {
-      text: "What key on a keyboard is used to switch between different open applications or windows?",
+      text: "In operating systems, I can be set to send a signal after a specified time interval, often used to interrupt sleeping processes or enforce timeouts. What am I?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 3, hintNum: 0
+      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
     },
     // down: { text: "Sun rises in the?", answer: "EAST" }
   },
   5: {
-    right: {
-      text: "What is the term for a system used to send, receive, and store digital messages over the internet?",
+    down: {
+      text: "What word describes the action of forcefully removing an unauthorized user from a system or network?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
@@ -161,32 +161,12 @@ const questions2 = {
     // down: { text: "Sun rises in the?", answer: "EAST" }
   },
   6: {
-    right: {
-      text: "What word refers to the process of doing something intentionally or taking action in response to a situation?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
-      len: 3,
-      hintNum: 0
-    }
-  }
-  7: {
     down: {
-      text: "What is the name of the anonymous network browser used to access the dark web securely?",
+      text: "What word means to express something verbally, and can also relate to speech synthesis in AI and voice assistants?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
-      len: 3,
-      hintNum: 0
-    }
-  }
-  8: {
-    down: {
-      text: "Which computer component provides temporary storage for data and programs, allowing for fast access and processing but loses its content when power is turned off?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
-      len: 3,
+      len: 5,
       hintNum: 0
     }
   }
@@ -194,7 +174,7 @@ const questions2 = {
 const questions3 = {
   1: {
     right: {
-      text: "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?",
+      text: "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
       hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
@@ -202,7 +182,7 @@ const questions3 = {
       hintNum: 0
     },
     down: {
-      text: "What is the smallest unit of an image displayed on a screen, often used to measure the resolution of digital images?",
+      text: "In computer science and mathematics, which term is used to represent the difference or change in a variable, often appearing in equations or algorithms to calculate differences between values?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
@@ -212,7 +192,7 @@ const questions3 = {
   },
   2: {
     right: {
-      text: "What is the term for a visual representation of something, often created digitally or captured by a camera?",
+      text: "In programming, I can be called with a status code to terminate execution, and in some cases, I clean up resources before doing so. In shell scripts, I signify the end of a process. What am I?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
@@ -220,24 +200,24 @@ const questions3 = {
   },
   3: {
     right: {
-      text: "Which bitwise operation, commonly used in programming, results in true if and only if the number of true inputs is odd?",
+      text: "Which communication system, once widely used for sending written messages over long distances, relied on teleprinters and was commonly used by businesses before the advent of fax and email?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 3, hintNum: 0
+      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
     }
   },
   4: {
-    down: {
-      text: "Which Indian Prime Minister, known for his ambitious projects like Make in India and Digital India, was once a key figure in Gujarat's politics before assuming the national leadership in 2014?",
+    right: {
+      text: "In operating systems, I can be set to send a signal after a specified time interval, often used to interrupt sleeping processes or enforce timeouts. What am I?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
+      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
     },
     // down: { text: "Sun rises in the?", answer: "EAST" }
   },
   5: {
-    right: {
-      text: "Which operating system, often favored by developers and system administrators, is known for being highly customizable and having a command-line interface as a core feature?",
+    down: {
+      text: "What word describes the action of forcefully removing an unauthorized user from a system or network?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
@@ -248,21 +228,11 @@ const questions3 = {
   },
   6: {
     down: {
-      text: "Which branch of engineering, deals with the design and development of electrical systems, circuits, and electronic devices?",
+      text: "What word means to express something verbally, and can also relate to speech synthesis in AI and voice assistants?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
-      len: 3,
-      hintNum: 0
-    }
-  }
-  7: {
-    down: {
-      text: "What term is used to describe the process of executing a program or script, often initiated by a user or an automated system?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
-      len: 3,
+      len: 5,
       hintNum: 0
     }
   }
@@ -270,7 +240,7 @@ const questions3 = {
 const questions4 = {
   1: {
     right: {
-      text: "Which device, named after a small rodent, has become essential for navigating graphical user interfaces and often uses a sensor or ball to detect movement?",
+      text: "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
       hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
@@ -278,7 +248,7 @@ const questions4 = {
       hintNum: 0
     },
     down: {
-      text: "What term is used in programming or version control systems to combine changes from different sources into a single, unified version?",
+      text: "In computer science and mathematics, which term is used to represent the difference or change in a variable, often appearing in equations or algorithms to calculate differences between values?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
@@ -288,7 +258,7 @@ const questions4 = {
   },
   2: {
     right: {
-      text: "What is the name of the popular open-source desktop environment used in Linux, known for its user-friendly interface and customization options?",
+      text: "In programming, I can be called with a status code to terminate execution, and in some cases, I clean up resources before doing so. In shell scripts, I signify the end of a process. What am I?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
@@ -296,15 +266,15 @@ const questions4 = {
   },
   3: {
     right: {
-      text: "reverse of the term which is used to describe the difference between the highest and lowest values in a dataset or a set of numbers?",
+      text: "Which communication system, once widely used for sending written messages over long distances, relied on teleprinters and was commonly used by businesses before the advent of fax and email?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
     }
   },
   4: {
-    down: {
-      text: "What Greek letter is commonly used to represent the sum of a series or the sum of a set of numbers in mathematics?",
+    right: {
+      text: "In operating systems, I can be set to send a signal after a specified time interval, often used to interrupt sleeping processes or enforce timeouts. What am I?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
@@ -313,7 +283,7 @@ const questions4 = {
   },
   5: {
     down: {
-      text: "What key on a keyboard is used to submit or confirm an action, such as sending a message or executing a command?",
+      text: "What word describes the action of forcefully removing an unauthorized user from a system or network?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
@@ -323,12 +293,12 @@ const questions4 = {
     // down: { text: "Sun rises in the?", answer: "EAST" }
   },
   6: {
-    right: {
-      text: "In computing, what term refers to a storage area used to temporarily hold files or data that are no longer needed?",
+    down: {
+      text: "What word means to express something verbally, and can also relate to speech synthesis in AI and voice assistants?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
-      len: 3,
+      len: 5,
       hintNum: 0
     }
   }
@@ -336,7 +306,7 @@ const questions4 = {
 const questions5 = {
   1: {
     right: {
-      text: "What term is used to describe a point in a network, where data is sent or received, and can represent either a physical device or a logical entity in systems like graphs or trees??",
+      text: "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
       hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
       { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
@@ -344,7 +314,7 @@ const questions5 = {
       hintNum: 0
     },
     down: {
-      text: "What term refers to written or recorded information, often used as a reminder or reference, and is commonly found in classrooms, meetings, or digital apps?",
+      text: "In computer science and mathematics, which term is used to represent the difference or change in a variable, often appearing in equations or algorithms to calculate differences between values?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
@@ -354,23 +324,23 @@ const questions5 = {
   },
   2: {
     right: {
-      text: "Which innovative company, named after a famous inventor, has become a leader in electric vehicles, solar energy, and space exploration?",
+      text: "In programming, I can be called with a status code to terminate execution, and in some cases, I clean up resources before doing so. In shell scripts, I signify the end of a process. What am I?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
     }
   },
   3: {
-    down: {
-      text: "Which web browser, known for its speed and support for modern web standards, is also famous for being developed by a software company that shares its name with a famous music genre?",
+    right: {
+      text: "Which communication system, once widely used for sending written messages over long distances, relied on teleprinters and was commonly used by businesses before the advent of fax and email?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
     }
   },
   4: {
-    down: {
-      text: "What devices are often used for long-term data retention, can be either volatile or non-volatile, and is found in both computers and external drives?",
+    right: {
+      text: "In operating systems, I can be set to send a signal after a specified time interval, often used to interrupt sleeping processes or enforce timeouts. What am I?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
@@ -379,11 +349,11 @@ const questions5 = {
   },
   5: {
     down: {
-      text: "What term is used for a conversation or exchange of messages, often taking place in a digital interface, where responses are instantaneous and typically used for both casual and professional communication?",
+      text: "What word describes the action of forcefully removing an unauthorized user from a system or network?",
       hints: [{ text: "Hello I am Hint 1", used: false },
       { text: "Hello I am Hint 2", used: false },
       { text: "Hello I am Hint 3", used: false },],
-      len: 4,
+      len: 5,
       hintNum: 0
     },
     // down: { text: "Sun rises in the?", answer: "EAST" }
