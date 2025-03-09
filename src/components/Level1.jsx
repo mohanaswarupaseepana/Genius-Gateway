@@ -242,7 +242,7 @@ const questions3 = {
       text: "Which operating system, often favored by developers and system administrators, is known for being highly customizable and having a command-line interface as a core feature?",
       hints: [{ text: "This open-source operating system is based on the Unix kernel and allows users to modify its source code freely.", used: false },
       { text: "It powers many servers, supercomputers, and even Android devices, offering flexibility and control through its terminal.", used: false },
-      { text: "It’s a five-letter word starting with "L," often associated with distros like Ubuntu, Fedora, and Debian.", used: false },],
+      { text: "It’s a five-letter word starting with L, often associated with distros like Ubuntu, Fedora, and Debian.", used: false },],
       len: 5,
       hintNum: 0
     },
