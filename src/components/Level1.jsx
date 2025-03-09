@@ -11,19 +11,19 @@ const crossGrid1 = [
   [{ num: 4, direction: [{ dir: "right", len: 5, answer: "ALARM" }], filled: false }, { filled: false }, { filled: false }, { filled: false }, { filled: false }]
 ];
 const crossGrid2=[
-  [{ num: 1, direction: [{ dir: "right", len: 4, answer: "ABCD" }], filled: false }, { num: 2, direction: [{ dir: "down", len: 5, answer: "BEFGH" }], filled: false }, {num: 3, direction: [{ dir: "down", len: 5, answer: "CKNST" }], filled: false}, { num: 5, direction: [{ dir: "down", len: 3, answer: "DLO" }], filled: false },{filled:true}],
-  [{ filled: true },{filled: false }, { filled: false }, { filled: false }, {num: 6, direction: [{ dir: "down", len: 4, answer: "MPQR" }], filled: false }],
-  [{num: 4, direction: [{ dir: "right", len: 5, answer: "HFNOP" },{ dir: "down", len: 3, answer: "HIJ" }],filled: false }, { filled: false }, { filled: false}, { filled: false }, { filled: false }],
-  [{filled: false }, { filled: false }, { filled: false }, { filled: true }, { filled: false }],
-  [{ num: 5, direction: [{ dir: "right", len: 5, answer: "JHTUR" }], filled: false }, { filled: false }, { filled: false }, { filled: false }, { filled: false }]
+  [{ num: 1, direction: [{ dir: "right", len: 5, answer: "REACT" },{ dir: "down", len: 5, answer: "ROUTE" }], filled: false }, {filled: false }, { num: 6, direction: [{ dir: "right", len: 3, answer: "ACT" }],filled: false},{ filled: false },{filled:false}],
+  [{ num: 2, direction: [{ dir: "right", len: 5, answer: "OHTRO" }],filled: false },{filled: false }, { filled: false }, { filled: false }, { filled: false }],
+  [{num: 3, direction: [{ dir: "right", len: 3, answer: "URL"}],filled: false }, {num: 8, direction: [{ dir: "down", len: 3, answer: "RAM"}], filled: false }, { filled: false}, { filled: true }, { filled: false }],
+  [{num: 4, direction: [{ dir: "right", len: 3, answer: "TAB"}],filled: false }, { filled: false }, { filled: false }, { filled: true }, { filled: true}],
+  [{num: 5, direction: [{ dir: "right", len: 5, answer: "EMAIL"}],filled: false }, { filled: false }, { filled: false }, { filled: false}, { filled: false}]
 
 ];
 const crossGrid3=[
-  [{ num: 1, direction: [{ dir: "right", len: 5, answer: "ABCDE" }], filled: false }, { num: 4, direction: [{ dir: "down", len: 5, answer: "BGLPQ" }], filled: false }, {num: 5, direction: [{ dir: "down", len: 4, answer: "CHMR" }], filled: false}, { num: 6, direction: [{ dir: "down", len: 5, answer: "DINST" }], filled: false },{num: 7, direction: [{ dir: "down", len: 5, answer: "EJOUV" }], filled: false }],
-  [{num: 2, direction: [{ dir: "right", len: 5, answer: "FGHIJ" }], filled: false  },{filled: false }, { filled: false }, { filled: false }, { filled: false }],
-  [{num: 3, direction: [{ dir: "right", len: 5, answer: "KLMNO" }],filled: false }, { filled: false }, { filled: false}, { filled: false }, { filled: false }],
-  [{filled: true }, { filled: false }, { filled: false }, { filled: false}, { filled: false }],
-  [{filled: true }, { filled: false }, { filled: true }, { filled: false }, { filled: false }]
+  [{ num: 1, direction: [{dir: "right", len: 5, answer: "PHONE" },{ dir: "down", len: 5, answer: "PIXEL" }], filled: false }, {filled: false }, {filled: false}, {filled: false },{num: 6, direction: [{ dir: "down", len: 3, answer: "EEE" }], filled: false }],
+  [{num: 2, direction: [{dir: "right", len: 5, answer: "IMAGE" }], filled: false  },{num:4,direction:[{dir: "down", len: 4, answer: "MODI"}],filled:false}, { filled: false }, { filled: false }, { filled: false }],
+  [{num: 3, direction: [{dir: "right", len: 3, answer: "XOR" }],filled: false }, { filled: false }, {num: 7, direction: [{ dir: "down", len: 3, answer: "RUN" }], filled: false}, { filled: true }, { filled: false }],
+  [{filled: false }, { filled: false }, {filled: false }, { filled: true}, { filled: true }],
+  [{num: 5, direction: [{ dir: "right", len: 5, answer: "LINUX" }],filled: false }, { filled: false }, { filled: false }, { filled: false }, { filled: false }]
 ];
 const crossGrid4 = [
   [{ num: 1, direction: [{ dir: "right", len: 5, answer: "MOUSE" }, { dir: "down", len: 5, answer: "MERGE" }], filled: false }, { num: 5, direction: [{ dir: "down", len: 5, answer: "ENTER" }], filled: false }, { filled: false }, { num: 6, direction: [{ dir: "right", len: 3, answer: "BIN" }], filled: false }],
@@ -131,7 +131,7 @@ const questions2 = {
       text: "Which term, derived from Greek, is commonly used to refer to both the branch of medicine dealing with musculoskeletal issues and a shorthand for specialists in this field?",
       hints: [{ text: "This term comes from the Greek word meaning straight or correct.", used: false },
       { text: "It is commonly associated with treating bone, joint, and spine disorders.", used: false },
-      { text: "The full term often appears in hospitals as Orthopedic Surgeon or Orthopedist.", used: false },], len: 4, hintNum: 0
+      { text: "The full term often appears in hospitals as Orthopedic Surgeon or Orthopedist.", used: false },], len: 5, hintNum: 0
     }
   },
   3: {
@@ -171,7 +171,7 @@ const questions2 = {
       len: 3,
       hintNum: 0
     }
-  }
+  },
   7: {
     down: {
       text: "What is the name of the anonymous network browser used to access the dark web securely?",
@@ -181,7 +181,7 @@ const questions2 = {
       len: 3,
       hintNum: 0
     }
-  }
+  },
   8: {
     down: {
       text: "Which computer component provides temporary storage for data and programs, allowing for fast access and processing but loses its content when power is turned off?",
@@ -257,7 +257,7 @@ const questions3 = {
       len: 3,
       hintNum: 0
     }
-  }
+  },
   7: {
     down: {
       text: "What term is used to describe the process of executing a program or script, often initiated by a user or an automated system?",
