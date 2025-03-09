@@ -14,64 +14,213 @@ import GeniusCipherGameUI from './GeniusCipher';
 import Coins from './Coins';
 import BridgeTorch from './BridgeTorch';
 import Sudoku from './Sudoku';
+import MissingGrid from './MissingGrid';
+let currentSection = 0;
+
+
 
 let key = [];
-const Level2 = () => {
+const Level2 = ({ EVENT_START_TIME, LEVEL_TIME_LIMITS }) => {
     const [user, setUser] = useState({});
     const [groups, setGroups] = useState([]);
     const [answeredOne, setAnsweredOne] = useState(false);
-    const [currentSection, setCurrentSection] = useState(0);
     const [presentDoor, setPresentDoor] = useState(-1);
     const [doorClick, setDoorClick] = useState(false);
     const [openedDoors, setOpenedDoors] = useState([]);
     const [doorAnswer, setDoorAnswer] = useState(false);
     const [wrongDoor, setWrongDoor] = useState(false);
-    const targetTime = "2025-03-05T16:37:00";
-    const calculateTimeLeft = () => {
-        const now = new Date().getTime(); // Current timestamp
-        const target = new Date(targetTime).getTime(); // Target timestamp
-        const difference = Math.max(target - now, 0); // Ensure non-negative time
-        return Math.floor(difference / 1000); // Convert to seconds
+    // const targetTime = "2025-03-05T16:37:00";
+    // const calculateTimeLeft = () => {
+    //     const now = new Date().getTime(); // Current timestamp
+    //     const target = new Date(targetTime).getTime(); // Target timestamp
+    //     const difference = Math.max(target - now, 0); // Ensure non-negative time
+    //     return Math.floor(difference / 1000); // Convert to seconds
+    // };
+
+    // const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+    // useEffect(() => {
+    //     if (timeLeft <= 0) return;
+
+    //     const timer = setInterval(() => {
+    //         setTimeLeft(calculateTimeLeft());
+    //     }, 1000);
+
+    //     return () => clearInterval(timer);
+    // }, [timeLeft]);
+
+    // // Format time as MM:SS
+    // const formatTime = (seconds) => {
+    //     const minutes = Math.floor(seconds / 60);
+    //     const secs = seconds % 60;
+    //     return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+    // };
+
+    const handleElimination = async () => {
+        try {
+            const response = await fetch("http://localhost:5000/eliminated", { // Ensure "http://" is included
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                }, // Convert state to JSON string
+                body: JSON.stringify({ email: email })
+            });
+            const result = await response.json();
+            console.log(result);
+            navigate("/eliminated", { state: { email: email } });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const getAllocatedTime = (userStartTime) => {
+        // Time passed from the event start to user's start (in ms)
+        const delay = userStartTime.getTime() - (EVENT_START_TIME.getTime() + 900000);
+        const allocated = LEVEL_TIME_LIMITS[1] - delay;
+        // console.log(allocated,delay);
+        return Math.max(allocated, 0);
     };
-
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
+    const userStartTime = new Date();
+    const [remainingTime, setRemainingTime] = useState(getAllocatedTime(userStartTime));
     useEffect(() => {
-        if (timeLeft <= 0) return;
+        if (remainingTime <= 0) {
+            // When time runs out, automatically navigate to the next level.
+            // You might also call onComplete(false) if you want to mark it as incomplete.
+            if (user && user.Level1 === true && user.Level2 === false) {
+                handleElimination();
+            } else if (user.Level2 === true) {
+                navigate("/level2waiting", { state: { email: email } });
+            }
 
-        const timer = setInterval(() => {
-            setTimeLeft(calculateTimeLeft());
+        }
+
+        const interval = setInterval(() => {
+            setRemainingTime(prev => {
+                const updated = prev - 1000;
+                if (updated >= 0) {
+                    return updated;
+                } else {
+                    return 0;
+                }
+
+            });
         }, 1000);
 
-        return () => clearInterval(timer);
-    }, [timeLeft]);
-
-    // Format time as MM:SS
-    const formatTime = (seconds) => {
-        const minutes = Math.floor(seconds / 60);
-        const secs = seconds % 60;
-        return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
-    };
+        return () => clearInterval(interval);
+    }, [remainingTime, user]);
 
     const navigate = useNavigate();
+    const handleCheckpoint = async (checkpoint) => {
+        try {
+            const response = await fetch("http://localhost:5000/checkpoints", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email: email, checkpoint: checkpoint }),
+            });
+
+            const result = await response.json();
+            console.log(result);
+            if (response.status === 200) {
+                console.log("Checkpoint Success:", result);
+                currentSection = currentSection + 1;
+            } else {
+                console.log("Checkpoint failed");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
+    const level2Completed = async () => {
+        try {
+            // console.log(email,password)
+            const response = await fetch("http://localhost:5000/completion2", { // Ensure "http://" is included
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                }, // Convert state to JSON string
+                body: JSON.stringify({ email: email })
+            });
+
+            const result = await response.json();
+            console.log(result);
+            return true;
+            // setUser(result);
+            // setForceRender((prev) => prev + 1); 
+
+
+            // if (response.status === 200) {
+            //   // navigate("/level1");
+
+            // } else {
+            //   setResponseMessage(result.message || "Login failed");
+            // }
+        } catch (error) {
+            console.log(error);
+
+            // setResponseMessage(`Error: ${error.message}`);
+            // navigate("/login");
+        }
+    };
+
+    const handleQuestions = async () => {
+        try {
+            const response = await fetch("http://localhost:5000/questions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email: email }),
+            });
+
+            const result = await response.json();
+            setUser(result)
+            console.log(result);
+            if (response.status === 200) {
+                console.log("Success:", result);
+            } else {
+                console.log("Failed");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+
+        }
+    }
+
 
     // Questions data
-    const handleSuccess = useCallback((qNum) => {
-        console.log("Success", qNum, "currentSection:", currentSection);
+    const handleSuccess = ((qNum) => {
+        console.log("Success currentSection:", currentSection);
         setPresentDoor(-1);
         setDoorClick(false);
         setAnsweredOne(true);
         questions[qNum].answer = true;
-    
+        handleQuestions();
+
         if (qNum === key[currentSection]) {
+            
             if (currentSection === 2) {
-                console.log("At section 2 - no further update");
+                setTimeout(() => {
+                    // setDoorAnswer(true);
+                    setTimeout(() => {
+                        // setDoorAnswer(false);
+                        handleCheckpoint(currentSection + 1);
+                        level2Completed();
+                        navigate("/level2waiting", { state: { email: email } });
+
+                        // currentSection=currentSection+1;
+                    }, 5000);
+                    console.log("incremented current section");
+                }, 3000);
             } else {
                 setTimeout(() => {
                     setDoorAnswer(true);
                     setTimeout(() => {
                         setDoorAnswer(false);
-                        setCurrentSection(prev => prev + 1);
+                        handleCheckpoint(currentSection + 1);
+
+                        // currentSection=currentSection+1;
                     }, 5000);
                     console.log("incremented current section");
                 }, 3000);
@@ -82,17 +231,17 @@ const Level2 = () => {
                 setWrongDoor(false);
             }, 5000);
         }
-    }, [currentSection]);
+    });
     const [questions, setQuestions] = useState({
-        1: { component: <TowersOfHanoi handleSubmit={handleSuccess} qNum={1} />, answer: false },
+        1: { component: <MissingGrid handleSubmit={handleSuccess} qNum={1} />, answer: false },
         2: { component: <MagicSquare handleSubmit={handleSuccess} qNum={2} />, answer: false },
-        3: { component: <Sudoku handleSubmit={handleSuccess} qNum={3}/>, answer: false },
+        3: { component: <Sudoku handleSubmit={handleSuccess} qNum={3} />, answer: false },
         4: { component: <KenKen handleSubmit={handleSuccess} qNum={4} />, answer: false },
         5: { component: <Waterjug handleSubmit={handleSuccess} qNum={5} />, answer: false },
-        6: { component: <Coins />, answer: false },
-        7: { component: <MagicSquare />, answer: false },
-        8: { component: <BridgeTorch/>, answer: false },
-        9: { component: <GeniusCipherGameUI handleSubmit={handleSuccess} qNum={3} />, answer: false }
+        6: { component: <Coins handleSubmit={handleSuccess} qNum={6} />, answer: false },
+        7: { component: <TowersOfHanoi handleSubmit={handleSuccess} qNum={7} />, answer: false },
+        8: { component: <BridgeTorch handleSubmit={handleSuccess} qNum={8} />, answer: false },
+        9: { component: <GeniusCipherGameUI handleSubmit={handleSuccess} qNum={9} />, answer: false }
     });
 
 
@@ -137,6 +286,29 @@ const Level2 = () => {
                 console.log(Ukey);
                 key = Ukey;
                 console.log(key);
+
+                if (result.Level3 === true) {
+                    if (result.winner === true) {
+                        navigate("/winner", { state: { email: email } });
+                    } else {
+                        navigate("/completed", { state: { email: email } });
+                    }
+                }
+
+                if (result.eliminated === true) {
+                    navigate("/eliminated", { state: { email: email } });
+                }
+                if (result.Level2 === true) {
+                    navigate("/level2waiting", { state: { email: email } });
+                }
+                if (result.Checkpoint1 === false) {
+                    currentSection = 0;
+                } else if (result.Checkpoint2 === false) {
+                    currentSection = 1;
+                } else if (result.Checkpoint3 === false) {
+                    currentSection = 2;
+                }
+                console.log(currentSection);
                 // console.log(key);
 
 
@@ -155,13 +327,14 @@ const Level2 = () => {
 
 
 
-    const handleNext = () => {
-        if (currentSection < 2) {
-            setCurrentSection(prev => prev + 1);
-        }
-    };
+    // const handleNext = () => {
+    //     if (currentSection < 2) {
+    //         setCurrentSection(prev => prev + 1);
+    //     }
+    // };
 
     if (groups.length === 0) return <div>Loading...</div>;
+
 
 
     return (
@@ -184,10 +357,10 @@ const Level2 = () => {
                     </div>
 
                     <p className=" h-28 backdrop-blur-sm text-transparent bg-clip-text items-center text-5xl font-bold p-3 bg-gradient-to-br from-yellow-400 via-red-300 to-purple-600 flex justify-center"> Round-2 : Vault Of Minds</p>
-                    <p className="text-4xl font-bold text-green-400 w-1/4 flex justify-end">{formatTime(timeLeft)}</p>
+                    <p className="text-4xl font-bold text-green-400 w-1/4 flex justify-end">{Math.floor(remainingTime / 60000)}:{((remainingTime % 60000) / 1000).toFixed(0).padStart(2, '0')}</p>
                 </div>
                 <div className="px-7 h-16 grid grid-cols-3  w-full items-center">
-                    <p className="text-left font-bold text-4xl text-green-500 flex ">Key: <p className='flex mx-5'><span className={` px-2 flex ${currentSection<=0 ? "bg-black":"bg-green-400"}  text-white`}>{key[0]}</span><span className={` px-2 flex ${currentSection<=1 ? "bg-black":"bg-green-400"}  text-white`}>{key[1]}</span><span className={` px-2 flex ${currentSection<=2 ? "bg-black":"bg-green-400"}  text-white`}>{key[2]}</span></p></p>
+                    <p className="text-left font-bold text-4xl text-green-500 flex ">Key: <span className='flex mx-5'><span className={` px-2 flex ${currentSection <= 0 ? "bg-black" : "bg-green-400"}  text-white`}>{key[0]}</span><span className={` px-2 flex ${currentSection <= 1 ? "bg-black" : "bg-green-400"}  text-white`}>{key[1]}</span><span className={` px-2 flex ${currentSection <= 2 ? "bg-black" : "bg-green-400"}  text-white`}>{key[2]}</span></span></p>
                     <h1 className="text-3xl font-bold text-blue-400 text-center">
                         Checkpoint - {currentSection + 1}
                     </h1>
@@ -197,13 +370,12 @@ const Level2 = () => {
 
                 <div className="justify-around flex w-[80%] h-[400px]">
                     {groups[currentSection].map((qNum) => (
-                        <div className=' flex w-1/3 justify-center '>
+                        <div key={qNum} className=' flex w-1/3 justify-center '>
                             {questions[qNum].answer ? (
                                 <div className={` flex items-center justify-center w-[70%] ${qNum === key[currentSection] ? "bg-green-500" : "bg-red-700"} border-red-600  h-full`}>
                                     <CiUnlock className='fade-in text-9xl text-white' />
                                     <p className='fade-out absolute  text-9xl text-white'>{qNum}</p>
                                 </div>) : (<div
-                                    key={qNum}
                                     className=" w-[70%] rounded-lg shadow-md hover:shadow-lg transition-shadow"
                                     onClick={() => {
                                         if (!openedDoors.includes(qNum) && openedDoors.length < 2) setOpenedDoors(prevDoors => [...prevDoors, qNum]);;

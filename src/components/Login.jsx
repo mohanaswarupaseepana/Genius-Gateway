@@ -26,7 +26,7 @@ const Login = () => {
 
             if (response.status===200) {
                 console.log("Login Success:", result);
-                navigate("/level1",{ state: { email:email} });
+                navigate("/eventwaiting",{ state: { email:email} });
             } else {
                 setResponseMessage(result.message || "Login failed");
             }
@@ -38,7 +38,7 @@ const Login = () => {
 
     return (
         <div className="bg-blue-200 h-screen flex justify-center items-center bg-[url('/Geniusgateway.png')] bg-cover bg-center">
-            <div className="h-[70%] w-1/4 flex flex-col justify-center items-center backdrop-blur-sm ml-[50%]">
+            <div className="h-[70%] w-[400px] flex flex-col justify-center items-center backdrop-blur-sm ml-[50%]">
                 <div className="h-[20%] mb-4">
                     <p className="text-3xl p-3.5 flex justify-center font-bold text-white">Login To Genius Gateway</p>
                 </div>
@@ -46,7 +46,7 @@ const Login = () => {
                     <input 
                         type="email"
                         placeholder="Email"
-                        className="p-3 border m-2 w-full rounded-sm text-black"
+                        className="p-3  border border-gray-600 focus:outline-1 focus:outline-blue-800 m-2 w-full rounded-sm text-gray-200"
                         value={email} 
                         onChange={(e) => setEmail(e.target.value)} 
                         required 
@@ -54,14 +54,14 @@ const Login = () => {
                     <input 
                         type="password"
                         placeholder="Password"
-                        className="p-3 border m-2 w-full rounded-sm text-black"
+                        className="p-3 border border-gray-600 focus:outline-1 focus:outline-blue-800 m-2 w-full rounded-sm text-gray-200"
                         value={password} 
                         onChange={(e) => setPassword(e.target.value)} 
                         required 
                     />
                     <button
                         type="submit"
-                        className="w-3/5 mt-4 rounded-lg text-white flex justify-center p-2 bg-blue-800 hover:bg-green-700 transition"
+                        className="w-3/5 mt-4 rounded-lg text-white flex justify-center p-2 bg-blue-800 hover:bg-blue-600 transition cursor-pointer"
                         onClick={handleSubmit}
                     >
                         Login

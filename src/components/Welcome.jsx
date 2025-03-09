@@ -34,37 +34,12 @@ const Welcome = () => {
   ];
 
   return (
-    <div className="h-screen bg-blue-200 flex justify-center items-center bg-[url('/bg_image.jpg')] bg-cover bg-center">
-      <motion.div
-        key={step}
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.8 }}
-        transition={{ duration: 0.6 }}
-        className="absolute text-center w-full px-6"
-      >
-        <h1 className="text-5xl font-bold text-white mb-4">{sections[step].title}</h1>
-        <p className="text-lg text-white mb-6 whitespace-pre-line">
-          {sections[step].description}
-        </p>
-
-        <div className="flex justify-center gap-4">
-          {step > 0 && (
-            <button
-              onClick={() => setStep(step - 1)}
-              className="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400"
-            >
-              Back
-            </button>
-          )}
-          <button
-            onClick={nextStep}
-            className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-          >
-            {step < 2 ? "Next" : "Start the Event 🚀"}
-          </button>
-        </div>
-      </motion.div>
+    <div className="h-screen bg-blue-200 flex justify-center items-end pb-16 bg-[url('/GATEWAY.png')]  bg-cover bg-center">
+      <div>
+        <button className="px-8 py-3 text-3xl text-white font-thin  bg-blue-600  rounded-xl cursor-pointer "
+         onClick={()=>navigate("/instructions")}
+        >Let's Go</button>
+      </div>
     </div>
   );
 };

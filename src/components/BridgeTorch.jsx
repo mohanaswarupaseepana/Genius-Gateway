@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const BridgeTorch = () => {
+const BridgeTorch = ({ handleSubmit, qNum }) => {
   const people = [
     { name: "A", time: 1 },
     { name: "B", time: 2 },
@@ -15,6 +15,7 @@ const BridgeTorch = () => {
   const [selected, setSelected] = useState([]);
   const [logs, setLogs] = useState([]);
   const [gameOver, setGameOver] = useState(false);
+  const [tryAgain,setTryAgain]=useState(false);
 
   const handleSelect = (person) => {
     if (selected.includes(person)) {
@@ -26,6 +27,23 @@ const BridgeTorch = () => {
     }
   };
 
+  useEffect(()=>{
+
+    if (rightSide.length === 4) {
+      if(totalTime<=19){
+      console.log(totalTime);
+      setGameOver(true);
+      handleSubmit(qNum);
+      }else{
+        setTryAgain(true);
+        handleReset();
+        setInterval(()=>{
+          setTryAgain(false);
+          
+        },3000);
+      }
+    }
+  },[totalTime,rightSide])
   const handleMove = () => {
     if (selected.length === 0 || gameOver) return;
     const moveTime = Math.max(...selected.map((p) => p.time));
@@ -39,9 +57,7 @@ const BridgeTorch = () => {
       setTorch("right");
       setLogs([...logs, `Moved ${selected.map(p => p.name).join(" & ")} → Right (Time: ${moveTime})`]);
   
-      if (newRightSide.length === 4) {
-        setGameOver(true);
-      }
+      
     } else if (torch === "right") {
       const newRightSide = rightSide.filter((p) => !selected.includes(p));
       const newLeftSide = [...leftSide, ...selected];
@@ -88,26 +104,26 @@ const BridgeTorch = () => {
         </button>
       </div>
 
-      <div className="w-2/3 p-4 flex flex-col items-center overflow-x-scroll">
+      <div className="border w-2/3 p-4 flex flex-col items-center overflow-x-scroll">
         {/* Left and Right Side Human Containers */}
-        <div className="flex justify-between w-full max-w-xl mb-6">
-          <div className="flex space-x-4 items-center">
+        <div className="h-full relative flex justify-between w-full max-w-xl mb-6">
+          <div className="bg-red-100 pl-3 rounded-lg w-1/3 flex space-x-4 items-center">
             {leftSide.map((p) => (
               <span key={p.name} onClick={() => handleSelect(p)}
-                className={`cursor-pointer flex flex-col items-center ${selected.includes(p) ? "text-blue-500" : "text-black"}`}>
+                className={`text-md cursor-pointer flex flex-col items-center ${selected.includes(p) ? "text-blue-500" : "text-black"}`}>
                 🧍<span className="text-sm font-bold">{p.name}</span>
               </span>
             ))}
           </div>
 
           {/* Bridge Area */}
-          <div className="relative flex items-center justify-center w-1/2 h-25 border">
+          <div className="relative flex items-center justify-center w-1/2 h-full">
             {/* Bridge Line */}
-            <div className="absolute w-full h-2 bg-gray-700 rounded-lg top-1/2 transform -translate-y-1/2" />
+            <div className="absolute w-full h-full bg-gray-700 rounded-lg top-1/2 transform -translate-y-1/2" />
             <span className="absolute text-white text-sm font-bold">🌉 Bridge</span>
           </div>
 
-          <div className="flex space-x-4 items-center">
+          <div className="bg-green-100 pr-3 rounded-lg w-1/3  justify-end flex space-x-4 items-center">
             {rightSide.map((p) => (
               <span key={p.name} onClick={() => handleSelect(p)}
                 className={`cursor-pointer flex flex-col items-center ${selected.includes(p) ? "text-blue-500" : "text-black"}`}>
@@ -115,17 +131,18 @@ const BridgeTorch = () => {
               </span>
             ))}
           </div>
-        </div>
-
-        {/* Torch Movement (only in Right Side) */}
-        <div className="absolute flex items-center justify-center w-10 h-10 transition-all duration-500"
-          style={{ left: torch === "right" ? "80%" : "50%", top: "5%" }}>
+          <div className="absolute flex items-center justify-center w-10 transition-all duration-500"
+          style={{ left: torch === "right" ? "75%" : "20%", top: "15%" }}>
           <img
             src="./flame_torch.png"
             alt="Torch"
             className="h-14 w-7"
           />
         </div>
+        </div>
+
+        {/* Torch Movement (only in Right Side) */}
+        
 
         {/* Move Button */}
         {!gameOver && (
@@ -150,6 +167,11 @@ const BridgeTorch = () => {
           {gameOver && (
             <p className="text-green-600 font-bold text-lg mt-4 text-center">
               🎉 Success! Everyone crossed in {totalTime} minutes! 🎉
+            </p>
+          )}
+          {tryAgain && (
+            <p className="text-red-600 font-bold text-lg mt-4 text-center">
+              🎉 Sorry...! Try to cross all the four people with more minimal time as possible! 🎉
             </p>
           )}
         </div>

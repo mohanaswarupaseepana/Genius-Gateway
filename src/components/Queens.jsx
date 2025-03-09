@@ -1,8 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const Queens = ({ handleSubmit, qNum }) => {
+const Queens = ({ EVENT_START_TIME, LEVEL_TIME_LIMITS }) => {
   const [queens, setQueens] = useState([0, 1, 2, 3, 4, 5, 6, 7]);
+  const location = useLocation();
+  // const navigate = useNavigate();
+  const { email } = location.state || {};
+  // const email = "prem@gmail.com";
 
   // Check if a queen at (row, col) conflicts with others
   const hasConflict = (row, col) => {
@@ -20,23 +25,139 @@ const Queens = ({ handleSubmit, qNum }) => {
     setQueens([0, 1, 2, 3, 4, 5, 6, 7]);
   };
 
+  const handleSuccess = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/level3completion", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email }),
+      });
+      const result = await response.json();
+      console.log(result);
+      if(result.winner===true){
+        navigate("/winner", { state: { email: email } });
+      }else if(result.winner===false){
+        navigate("/completed",{state:{email:email}});
+      }
+      // if (result.success) {
+      //   navigate("/completed", { state: { email: email } });
+      // } else {
+      //   navigate("/eliminated", { state: { email: email } });
+      // }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+
+  }
+  const handleElimination = async () => {
+    try {
+        const response = await fetch("http://localhost:5000/eliminated", { // Ensure "http://" is included
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            }, // Convert state to JSON string
+            body: JSON.stringify({ email: email })
+        });
+        const result = await response.json();
+        console.log(result);
+        navigate("/eliminated", { state: { email: email } });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
   const isValidSolution = () => {
     if (queens.every((col, row) => !hasConflict(row, col))) {
-      handleSubmit(qNum);
+      handleSuccess();
+      return true;
     }
     return queens.every((col, row) => !hasConflict(row, col));
   };
+  const navigate = useNavigate();
+  const [user, setUser] = useState({});
+  const getAllocatedTime = (userStartTime) => {
+    // Time passed from the event start to user's start (in ms)
+    const delay = userStartTime.getTime() - (EVENT_START_TIME.getTime() + 1800000);
+    const allocated = LEVEL_TIME_LIMITS[1] - delay;
+    // console.log(allocated,delay);
+    return Math.max(allocated, 0);
+  };
+  const userStartTime = new Date();
+  const [remainingTime, setRemainingTime] = useState(getAllocatedTime(userStartTime));
+  useEffect(() => {
+    if (remainingTime <= 0) {
+      // When time runs out, automatically navigate to the next level.
+      // You might also call onComplete(false) if you want to mark it as incomplete.
+      // navigate("/level3",{ state: { email:email} });
+      if (user && user.Level1 === true && user.Level2 === true &&user.Level3 === false) {
+        handleElimination();
+    } else if (user.Level3 === true) {
+        navigate("/completed", { state: { email: email } });
+    }
+
+    }
+
+    const interval = setInterval(() => {
+      setRemainingTime(prev => {
+        const updated = prev - 1000;
+        if (updated >= 0) {
+          return updated;
+        } else {
+          return 0;
+        }
+
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [remainingTime,user]);
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/access", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: email }),
+        });
+
+        const result = await response.json();
+        console.log(result);
+        setUser(result);
+        if (result.eliminated === true) {
+          navigate("/eliminated");
+        }
+        if (result.Level3 === true) {
+          if (result.winner === true) {
+            navigate("/winner", { state: { email: email } });
+          } else {
+            navigate("/completed", { state: { email: email } });
+          }
+        }
+      } catch (error) {
+        navigate("/login");
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchUserDetails();
+  }, []);
+
 
   return (
     <div className="min-h-dvh w-full bg-gradient-to-tr from-blue-200 via-white to-red-100 items-center justify-evenly p-4">
       <div className="flex justify-between w-full px-7 items-center">
         <div className=" flex flex-col gap-4 w-1/4">
-          <p className="text-lg h-[30px] font-bold text-purple-400">Team Name: </p>
-          <p className=" text-lg h-[30px] font-bold text-purple-400">Points: </p>
+          <p className="text-lg h-[30px] font-bold text-purple-400">Team Name: {user.teamName}</p>
+          <p className=" text-lg h-[30px] font-bold text-purple-400">Points: {user.Points}</p>
         </div>
 
         <p className=" h-28 backdrop-blur-sm text-transparent bg-clip-text items-center text-5xl font-bold p-3 bg-gradient-to-br from-yellow-400 via-red-300 to-purple-600 flex justify-center"> Round-3 : Queen Of Minds</p>
-        <p className="text-4xl font-bold text-green-400 w-1/4 flex justify-end">18:00</p>
+        <p className="text-4xl font-bold text-green-400 w-1/4 flex justify-end">{Math.floor(remainingTime / 60000)}:{((remainingTime % 60000) / 1000).toFixed(0).padStart(2, '0')}</p>
       </div>
       <div className='flex '>
         <div className='w-1/2 ml-5 h-full flex flex-col px-6 gap-4  py-5'>

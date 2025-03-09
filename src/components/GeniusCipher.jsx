@@ -17,10 +17,10 @@ const GeniusCipherGameUI = ({ handleSubmit, qNum }) => {
   const handleCipherSubmit = () => {
     const userAnswer = inputs.join("");
     if (userAnswer === correctCipher) {
-      // console.log("success")
-        // handleSubmit(qNum);
+      console.log("success")
+        handleSubmit(qNum);
         
-    alert("Correct! You have encrypted the text correctly!");
+    // alert("Correct! You have encrypted the text correctly!");
     } else {
       alert("Incorrect. Please try again.");
     }

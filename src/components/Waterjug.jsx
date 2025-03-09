@@ -31,7 +31,7 @@ function Waterjug({ handleSubmit, qNum }) {
         [toJug]: prevState[toJug] + transferAmount,
       }));
     }
-    if(jugs.jug2===4){
+    if(jugs.jug1===6&&jugs.jug2===4&&jugs.jug3===3){
       console.log("Success");
     }
     console.log(jugs);
@@ -70,13 +70,13 @@ function Waterjug({ handleSubmit, qNum }) {
         </div>
 
         {/* Right Section: Interactive Puzzle Interface */}
-        <div className="pt-5 flex flex-col border items-center space-y-8 bg-white rounded-xl shadow-xl">
+        <div className="pt-5 flex flex-col items-center space-y-8 bg-white rounded-xl shadow-xl">
           {/* <div className="text-center text-2xl font-semibold text-gray-800 mb-4 mt-3">Interactive Puzzle</div> */}
 
           {/* Jugs Section */}
-          <div className="border flex items-end  gap-6 mb-8">
+          <div className="flex items-end  gap-6 mb-8">
             {Object.keys(jugs).map((jug, index) => (
-              <div key={jug} className="border flex flex-col h-fit items-center space-y-4">
+              <div key={jug} className=" flex flex-col h-fit items-center space-y-4">
                 <div className="text-xl font-semibold text-gray-700">{jug.replace('jug', 'Jug ')}</div>
                 <div
                   style={{ height: `${capacities[jug] * 1.8}rem` }}

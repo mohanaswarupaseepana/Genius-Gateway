@@ -370,10 +370,11 @@ const questions5 = {
   }
 };
 
-const Level1 = () => {
+const Level1 = ({EVENT_START_TIME,LEVEL_TIME_LIMITS}) => {
   // Questions Array
 
   // State to track the current question indices
+  // console.log(EVENT_START_TIME,LEVEL_TIME_LIMITS);
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [currentIndex, setcurrentIndex] = useState(0);
@@ -388,6 +389,7 @@ const Level1 = () => {
   const [completion,setCompletion]=useState(false);
   // State to track the answers entered by the user
   // const [answers, setAnswers] = useState(Array(7).fill("")); // 7 questions, 7 answers
+  
 
   const handleButtonClick = (index) => {
     // if (index === 0) {
@@ -418,13 +420,24 @@ const Level1 = () => {
 
         const result = await response.json();
         console.log(result);
+
+        if (result.level3 === true) {
+          if (result.winner === true) {
+            navigate("/winner", { state: { email: email } });
+          } else {
+            navigate("/completed", { state: { email: email } });
+          }
+        }
+        if(result.eliminated===true){
+          navigate("/eliminated",{ state: { email:email} });
+        }
         if(result.gridNum){
           setCrosswordGrid(eval(`crossGrid${result.gridNum}`));
           setQuestions(eval(`questions${result.gridNum}`));
         }
         setUser(result);
         if (result.Level1) {
-          navigate("/level2",{ state: { email:email} });
+          navigate("/level1waiting",{ state: { email:email} });
         }
         // setForceRender((prev) => prev + 1);
 
@@ -571,9 +584,6 @@ const Level1 = () => {
           console.log(result);
           setForceRender((prev) => prev + 1); 
   }
-      
-
-
       // if (response.status === 200) {
       //   // navigate("/level1");
 
@@ -592,7 +602,7 @@ const Level1 = () => {
     const level1Completed = async () => {
       try {
         // console.log(email,password)
-        const response = await fetch("http://localhost:5000/completion", { // Ensure "http://" is included
+        const response = await fetch("http://localhost:5000/completion1", { // Ensure "http://" is included
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -633,7 +643,7 @@ const Level1 = () => {
         setCompletion(true);
                   setTimeout(() => {
                     setCompletion(false);
-                    navigate("/level2",{ state: { email:email} });
+                    navigate("/level1waiting",{ state: { email:email} });
                 }, 10000);
         
       }
@@ -641,32 +651,84 @@ const Level1 = () => {
     }
 
   }, [userInput]);
-  const targetTime = "2025-03-04T11:37:00";
-  const calculateTimeLeft = () => {
-    const now = new Date().getTime(); // Current timestamp
-    const target = new Date(targetTime).getTime(); // Target timestamp
-    const difference = Math.max(target - now, 0); // Ensure non-negative time
-    return Math.floor(difference / 1000); // Convert to seconds
+  // const targetTime = "2025-03-04T11:37:00";
+  // const calculateTimeLeft = () => {
+  //   const now = new Date().getTime(); // Current timestamp
+  //   const target = new Date(targetTime).getTime(); // Target timestamp
+  //   const difference = Math.max(target - now, 0); // Ensure non-negative time
+  //   return Math.floor(difference / 1000); // Convert to seconds
+  // };
+
+  const handleElimination = async () => {
+    try{
+      const response = await fetch("http://localhost:5000/eliminated", { // Ensure "http://" is included
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        }, // Convert state to JSON string
+        body: JSON.stringify({ email: email })
+      });
+      const result = await response.json();
+      console.log(result);
+      navigate("/eliminated",{ state: { email:email} });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  const getAllocatedTime = (userStartTime) => {
+    // Time passed from the event start to user's start (in ms)
+    const delay = userStartTime.getTime() - EVENT_START_TIME.getTime();
+    const allocated = LEVEL_TIME_LIMITS[0] - delay;
+    // console.log(allocated,delay);
+    return Math.max(allocated, 0);
   };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
+  const userStartTime = new Date();
+  // const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [remainingTime, setRemainingTime] = useState(getAllocatedTime(userStartTime));
+  
   useEffect(() => {
-    if (timeLeft <= 0) return;
+    if (remainingTime <= 0) {
+      // When time runs out, automatically navigate to the next level.
+      // You might also call onComplete(false) if you want to mark it as incomplete.
+      console.log("hello 1");
+      if(user && user.Level1===false){
+        console.log("hello 2");
+        handleElimination();
+      }
+      return;
+    }
 
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
+    const interval = setInterval(() => {
+      setRemainingTime(prev => {
+        const updated = prev - 1000;
+        if(updated>=0){
+          return updated;
+      }else{
+          return 0;
+      }
+      });
     }, 1000);
 
-    return () => clearInterval(timer);
-  }, [timeLeft]);
+    return () => clearInterval(interval);
+  }, [remainingTime,user]);
+  
+  // useEffect(() => {
+  //   if (timeLeft <= 0) return;
 
-  // Format time as MM:SS
-  const formatTime = (seconds) => {
-    const minutes = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
-  };
+  //   const timer = setInterval(() => {
+  //     setTimeLeft(calculateTimeLeft());
+  //   }, 1000);
+
+  //   return () => clearInterval(timer);
+  // }, [timeLeft]);
+
+
+  // // Format time as MM:SS
+  // const formatTime = (seconds) => {
+  //   const minutes = Math.floor(seconds / 60);
+  //   const secs = seconds % 60;
+  //   return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+  // };
 
   const handledownHint=async(index)=>{
    
@@ -762,7 +824,7 @@ const Level1 = () => {
           </div>
 
           <p className=" h-28 backdrop-blur-sm text-transparent bg-clip-text items-center text-5xl font-bold p-3 bg-gradient-to-br from-blue-400 via-green-300 to-purple-600 flex justify-center"> Round-1 : Enigma Of Minds</p>
-          <p className="text-4xl font-bold text-green-400 w-1/4 flex justify-end">{formatTime(timeLeft)}</p>
+          <p className="text-4xl font-bold text-green-400 w-1/4 flex justify-end">{Math.floor(remainingTime / 60000)}:{((remainingTime % 60000) / 1000).toFixed(0).padStart(2, '0')}</p>
         </div>
         {/* Flex container for grid and questions */}
         <div className=" space-x-10 backdrop-blur-sm flex w-full h-[600px] justify-evenly ">

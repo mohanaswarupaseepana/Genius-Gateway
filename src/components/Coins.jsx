@@ -101,7 +101,7 @@ const DropZone = ({ zoneName, coins, onDrop, isStack = false, expectedValue }) =
   );
 };
 
-const Coins = () => {
+const Coins = ({ handleSubmit, qNum }) => {
   // Create an odd number of coins:
   // 7 coins of 1/-, 5 coins of 5/-, 3 coins of 10/- (total 15 coins)
   const initialCoins = [
@@ -170,6 +170,7 @@ const Coins = () => {
       const sum2 = group2.reduce((acc, coin) => acc + coin.value, 0);
       if (sum1 === halfSum && sum2 === halfSum) {
         setMessage('You cracked!');
+        handleSubmit(qNum);
       } else {
         setMessage('');
       }
