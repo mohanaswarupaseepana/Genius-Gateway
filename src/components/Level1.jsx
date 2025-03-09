@@ -43,17 +43,17 @@ const questions1 = {
   1: {
     right: {
       text: "I am the process that reveals hidden mistakes in logic, syntax, or execution, often requiring patience and problem-solving skills. Without me, software might remain broken. What am I?",
-      hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
-      { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
-      { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
+      hints: [{ text: "This process involves identifying and resolving errors or bugs in code, often using tools like breakpoints and log statements.", used: false },
+      { text: " Developers use specialized tools or environments to step through code line by line during this process, ensuring it behaves as expected.", used: false },
+      { text: "It’s a five-letter word starting with D, essential for fixing broken software and ensuring programs work correctly.", used: false },],
       len: 5,
       hintNum: 0
     },
     down: {
       text: "In computer science and mathematics, which term is used to represent the difference or change in a variable, often appearing in equations or algorithms to calculate differences between values?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: " In mathematics and computer science, this term symbolizes a change or difference in a variable, commonly used in algorithms, calculus, and physics equations.", used: false },
+      { text: "It’s often represented by a Greek letter (∆) and is used to calculate variations in values, like in time intervals or rate of change.", used: false },
+      { text: " It’s a five-letter word starting with D, also the fourth letter of the Greek alphabet.", used: false },],
       len: 5,
       hintNum: 0
     }
@@ -61,34 +61,34 @@ const questions1 = {
   2: {
     right: {
       text: "In programming, I can be called with a status code to terminate execution, and in some cases, I clean up resources before doing so. In shell scripts, I signify the end of a process. What am I?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
+      hints: [{ text: " In programming, this command or function is used to terminate the execution of a program, often returning a status code to indicate success or failure.", used: false },
+      { text: "It’s commonly used in shell scripts and languages like C, Python, and Bash to stop a process or break out of the program flow.", used: false },
+      { text: "It’s a four-letter word starting with E, also seen on doors, signaling a way out.", used: false },], len: 4, hintNum: 0
     }
   },
   3: {
     right: {
       text: "Which communication system, once widely used for sending written messages over long distances, relied on teleprinters and was commonly used by businesses before the advent of fax and email?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+      hints: [{ text: " This system used teleprinters connected over a network to exchange text-based messages, allowing businesses to communicate across long distances before modern digital methods.", used: false },
+      { text: "It was a predecessor to fax machines and email, popular in the mid-20th century, especially for secure business communications.", used: false },
+      { text: "It’s a five-letter word starting with T, sounding like a blend of telephone and text.", used: false },], len: 5, hintNum: 0
     }
   },
   4: {
     right: {
       text: "In operating systems, I can be set to send a signal after a specified time interval, often used to interrupt sleeping processes or enforce timeouts. What am I?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+      hints: [{ text: "In operating systems, this function schedules a signal to be sent after a certain time period, often used to implement timeouts or wake up processes.", used: false },
+      { text: " It’s commonly used in Unix-like systems to interrupt sleeping programs or trigger events after a delay.", used: false },
+      { text: "It’s a five-letter word starting with A, also something you set in the morning to wake up!", used: false },], len: 5, hintNum: 0
     },
     // down: { text: "Sun rises in the?", answer: "EAST" }
   },
   5: {
     down: {
       text: "What word describes the action of forcefully removing an unauthorized user from a system or network?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: " In cybersecurity, this action involves forcibly disconnecting an unauthorized user from a system or network to prevent further access.", used: false },
+      { text: "It’s a five-letter word, often used in schools or organizations, meaning to kick someone out due to a violation of rules.", used: false },
+      { text: "It starts with E and sounds like what happens when someone is permanently removed for breaking the rules.", used: false },],
       len: 5,
       hintNum: 0
     },
@@ -97,9 +97,9 @@ const questions1 = {
   6: {
     down: {
       text: "What word means to express something verbally, and can also relate to speech synthesis in AI and voice assistants?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: "This word refers to vocalizing thoughts, often linked to speech synthesis in AI, where text is transformed into spoken words.", used: false },
+      { text: "It’s a five-letter word that means to say something out loud, whether in conversation or through a digital voice assistant.", used: false },
+      { text: " It starts with U and can also describe something spoken softly or with minimal sound.", used: false },],
       len: 5,
       hintNum: 0
     }
@@ -195,17 +195,17 @@ const questions3 = {
   1: {
     right: {
       text: "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?",
-      hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
-      { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
-      { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
+      hints: [{ text: "This device transmits voices over long distances without physical presence.", used: false },
+      { text: "It can hear through a microphone and speak through a speaker, often used for communication.", used: false },
+      { text: "It’s a five-letter word, starting with P, and you probably carry it in your pocket every day.", used: false },],
       len: 5,
       hintNum: 0
     },
     down: {
       text: "What is the smallest unit of an image displayed on a screen, often used to measure the resolution of digital images?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: "This tiny element is the fundamental unit of a digital image, representing a single point of color.", used: false },
+      { text: "Screen resolution is often described by counting the number of these units, like 1080p or 4K.", used: false },
+      { text: "It’s a five-letter word starting with P and ends with L, commonly linked to image quality.", used: false },],
       len: 5,
       hintNum: 0
     }
@@ -213,34 +213,34 @@ const questions3 = {
   2: {
     right: {
       text: "What is the term for a visual representation of something, often created digitally or captured by a camera?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+      hints: [{ text: "This can be a digital rendering, a photograph, or a scanned picture, often made up of pixels.", used: false },
+      { text: "It is something you might edit using software like Photoshop or view in a gallery app.", used: false },
+      { text: "It’s a five-letter word starting with I and ending with E, often used to describe pictures or graphics.", used: false },], len: 5, hintNum: 0
     }
   },
   3: {
     right: {
       text: "Which bitwise operation, commonly used in programming, results in true if and only if the number of true inputs is odd?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 3, hintNum: 0
+      hints: [{ text: "This bitwise operation outputs true when inputs differ — one is true, and the other is false.", used: false },
+      { text: "It’s short for exclusive or, used in logic gates and binary addition without carry.", used: false },
+      { text: "It’s a three-letter term starting with X, often symbolized by ^ in many programming languages.", used: false },], len: 3, hintNum: 0
     }
   },
   4: {
     down: {
       text: "Which Indian Prime Minister, known for his ambitious projects like Make in India and Digital India, was once a key figure in Gujarat's politics before assuming the national leadership in 2014?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
+      hints: [{ text: "Before becoming Prime Minister, he served as the Chief Minister of Gujarat from 2001 to 2014.", used: false },
+      { text: " He launched initiatives like Swachh Bharat Abhiyan, Make in India, and Digital India to modernize the country.", used: false },
+      { text: "His last name is four letters long, starting with M, and he's been India’s Prime Minister since 2014.", used: false },], len: 4, hintNum: 0
     },
     // down: { text: "Sun rises in the?", answer: "EAST" }
   },
   5: {
     right: {
       text: "Which operating system, often favored by developers and system administrators, is known for being highly customizable and having a command-line interface as a core feature?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: "This open-source operating system is based on the Unix kernel and allows users to modify its source code freely.", used: false },
+      { text: "It powers many servers, supercomputers, and even Android devices, offering flexibility and control through its terminal.", used: false },
+      { text: "It’s a five-letter word starting with "L," often associated with distros like Ubuntu, Fedora, and Debian.", used: false },],
       len: 5,
       hintNum: 0
     },
@@ -249,9 +249,9 @@ const questions3 = {
   6: {
     down: {
       text: "Which branch of engineering, deals with the design and development of electrical systems, circuits, and electronic devices?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: " This engineering branch focuses on studying electricity, electromagnetism, and their applications in designing circuits and systems.", used: false },
+      { text: " It covers areas like power generation, control systems, and microelectronics, often involving both hardware and software.", used: false },
+      { text: " It’s commonly abbreviated as EEE — standing for Electrical and Electronics Engineering.", used: false },],
       len: 3,
       hintNum: 0
     }
@@ -259,9 +259,9 @@ const questions3 = {
   7: {
     down: {
       text: "What term is used to describe the process of executing a program or script, often initiated by a user or an automated system?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: "This term refers to the process of starting a program or script, allowing the computer to execute its instructions step by step.", used: false },
+      { text: "In many programming environments, pressing a play button or typing a command initiates this process, starting the code execution.", used: false },
+      { text: "It’s a three-letter word starting with R, often used when you  a program to make it work.", used: false },],
       len: 3,
       hintNum: 0
     }
@@ -271,17 +271,17 @@ const questions4 = {
   1: {
     right: {
       text: "Which device, named after a small rodent, has become essential for navigating graphical user interfaces and often uses a sensor or ball to detect movement?",
-      hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
-      { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
-      { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
+      hints: [{ text: "This input device translates hand movements into pointer movements on a screen, often using optical sensors or mechanical balls.", used: false },
+      { text: "It typically has buttons for clicking and may include a scroll wheel for navigating documents or web pages.", used: false },
+      { text: "It’s named after a small animal with a tail, and it’s a five-letter word starting with M, used: false }",used:false},],
       len: 5,
       hintNum: 0
     },
     down: {
       text: "What term is used in programming or version control systems to combine changes from different sources into a single, unified version?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: "This operation is crucial in version control systems like Git, often requiring conflict resolution when combining code changes.", used: false },
+      { text: "It integrates changes from different branches into a unified branch, ensuring all updates coexist in the codebase.", used: false },
+      { text: " It’s a five-letter word starting with M that means to combine or join things together.", used: false },],
       len: 5,
       hintNum: 0
     }
@@ -289,34 +289,34 @@ const questions4 = {
   2: {
     right: {
       text: "What is the name of the popular open-source desktop environment used in Linux, known for its user-friendly interface and customization options?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
+      hints: [{ text: "This desktop environment follows the GTK toolkit and focuses on simplicity, accessibility, and modern design principles.", used: false },
+      { text: "It’s the default desktop environment for many Linux distributions, including Fedora and Ubuntu (in certain editions).", used: false },
+      { text: " Its name is a five-letter word starting with G, sharing its name with a mythical creature often depicted as a small humanoid figure.", used: false },], len: 4, hintNum: 0
     }
   },
   3: {
     right: {
       text: "What is the reverse word of term which is used to describe the difference between the highest and lowest values in a dataset or a set of numbers?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+      hints: [{ text: " In statistics, this term represents a measure of dispersion, calculated by subtracting the smallest value from the largest value in a dataset.", used: false },
+      { text: "It shows how spread out numbers are, helping to understand the variability within a set of data points.", used: false },
+      { text: " It’s a five-letter word starting with R, often used to describe the span or extent between two points.", used: false },], len: 5, hintNum: 0
     }
   },
   4: {
     down: {
       text: "What Greek letter is commonly used to represent the sum of a series or the sum of a set of numbers in mathematics?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+      hints: [{ text: "This Greek letter is used in mathematics to denote summation, typically written as a large symbol with upper and lower bounds indicating the range of values to add.", used: false },
+      { text: "It looks like a stylized E and is often seen in formulas for calculating series, like arithmetic or geometric sums.", used: false },
+      { text: "It’s a five-letter word starting with S, representing the sum operator in math.", used: false },], len: 5, hintNum: 0
     },
     // down: { text: "Sun rises in the?", answer: "EAST" }
   },
   5: {
     down: {
       text: "What key on a keyboard is used to submit or confirm an action, such as sending a message or executing a command?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: "This key often triggers form submissions or executes commands in terminal interfaces, moving the cursor to a new line in text editors.", used: false },
+      { text: " It’s sometimes labeled Return on older keyboards and is crucial for confirming inputs or sending messages.", used: false },
+      { text: " It’s a five-letter word starting with E, usually the largest key on the right side of the main keyboard area.", used: false },],
       len: 5,
       hintNum: 0
     },
@@ -325,9 +325,9 @@ const questions4 = {
   6: {
     right: {
       text: "In computing, what term refers to a storage area used to temporarily hold files or data that are no longer needed?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: "In operating systems, this storage area temporarily holds deleted files, allowing users to restore them if needed.", used: false },
+      { text: "On Windows, it’s called the Recycle , and on macOS, it’s simply the . ", used: false },
+      { text: "It’s a three-letter word starting with B, often used to describe a container for discarded items, both digitally and physically.", used: false },],
       len: 3,
       hintNum: 0
     }
@@ -337,17 +337,17 @@ const questions5 = {
   1: {
     right: {
       text: "What term is used to describe a point in a network, where data is sent or received, and can represent either a physical device or a logical entity in systems like graphs or trees?",
-      hints: [{ text: "Hello I am Hint 1 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
-      { text: "Hello I am Hint 2 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },
-      { text: "Hello I am Hint 3 wgeyfiudwejoedkowhe jdfhiqjowekfmc hegfrurw whqeinfdwe hwqefoiewqjimif ghrgfuwequejn hegiu ddfhjsei", used: false },],
+      hints: [{ text: "In graph theory, this term represents a vertex where edges meet, and in networking, it’s a connection point for data transmission.", used: false },
+      { text: "In computer science, this term is used in data structures like linked lists, trees, and graphs to store data and links to other elements.", used: false },
+      { text: "It’s a four-letter word starting with N, commonly associated with networks and data structures.", used: false },],
       len: 4,
       hintNum: 0
     },
     down: {
       text: "What term refers to written or recorded information, often used as a reminder or reference, and is commonly found in classrooms, meetings, or digital apps?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: "These are brief records of important information, often used for studying, brainstorming, or summarizing ideas.", used: false },
+      { text: "You might take these during lectures, meetings, or while reading to remember key points later.", used: false },
+      { text: "It’s a five-letter word starting with N, and many apps like Google Keep and Evernote are designed for this purpose.", used: false },],
       len: 5,
       hintNum: 0
     }
@@ -355,34 +355,34 @@ const questions5 = {
   2: {
     right: {
       text: "Which innovative company, named after a famous inventor, has become a leader in electric vehicles, solar energy, and space exploration?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 4, hintNum: 0
+      hints: [{ text: "This company, founded in 2003, revolutionized the electric vehicle market and expanded into renewable energy and battery storage.", used: false },
+      { text: "Named after a legendary inventor known for his work with electricity, the company produces cars like the Model S, Model 3, and Model Y.", used: false },
+      { text: " It’s a five-letter word starting with T, led by Elon Musk, and famous for electric cars and self-driving technology.", used: false },], len: 4, hintNum: 0
     }
   },
   3: {
     down: {
       text: "Which web browser, known for its speed and support for modern web standards, is also famous for being developed by a software company that shares its name with a famous music genre?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+      hints: [{ text: "This web browser is known for its built-in VPN, ad blocker, and support for modern web technologies, offering a unique user experience.", used: false },
+      { text: "Its name is shared with a classical music genre and reflects a sense of elegance and performance.", used: false },
+      { text: " It’s a five-letter word starting with O, often linked to both a web browser and a dramatic musical art form.", used: false },], len: 5, hintNum: 0
     }
   },
   4: {
     down: {
       text: "What devices are often used for long-term data retention, can be either volatile or non-volatile, and is found in both computers and external drives?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },], len: 5, hintNum: 0
+      hints: [{ text: "These storage devices can be magnetic (like HDDs) or solid-state (like SSDs) and are used for saving data even when the computer is turned off.", used: false },
+      { text: "They are circular in shape, traditionally spinning to read/write data, though modern versions have no moving parts.", used: false },
+      { text: "It’s a five-letter word starting with D, often found in computers, storing everything from operating systems to personal files.", used: false },], len: 5, hintNum: 0
     },
     // down: { text: "Sun rises in the?", answer: "EAST" }
   },
   5: {
     down: {
       text: "What is the reverse word of term which is used for a conversation or exchange of messages, often taking place in a digital interface, where responses are instantaneous and typically used for both casual and professional communication?",
-      hints: [{ text: "Hello I am Hint 1", used: false },
-      { text: "Hello I am Hint 2", used: false },
-      { text: "Hello I am Hint 3", used: false },],
+      hints: [{ text: "This form of communication allows real-time text-based interaction, often seen in messaging apps, customer support interfaces, and online gaming.", used: false },
+      { text: "It’s commonly used in platforms like WhatsApp, Slack, and Discord for quick back-and-forth exchanges.", used: false },
+      { text: "It’s a four-letter word starting with C, describing informal or formal text conversations.", used: false },],
       len: 4,
       hintNum: 0
     },
