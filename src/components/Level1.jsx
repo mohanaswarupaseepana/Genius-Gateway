@@ -25,20 +25,22 @@ const crossGrid3=[
   [{filled: true }, { filled: false }, { filled: false }, { filled: false}, { filled: false }],
   [{filled: true }, { filled: false }, { filled: true }, { filled: false }, { filled: false }]
 ];
-const crossGrid4=[
-  [{  filled: true }, { num: 1, direction: [{ dir: "right", len: 4, answer: "ABCD" }], filled: false }, { filled: false}, { filled: false },{filled: false }],
-  [{num: 2, direction: [{ dir: "right", len: 5, answer: "EFGHI" }], filled: false  },{filled:false},{ num: 5, direction: [{ dir: "down", len: 4, answer: "GKPT" }], filled: false }, { filled: false }, { filled: false }],
-  [{filled: true },{num: 6, direction: [{ dir: "right", len: 4, answer: "JKLM" }],filled: false }, { filled: false }, { filled: false}, { filled: false }],
-  [{ num: 3, direction: [{ dir: "right", len: 4, answer: "NOPQ" }], filled: false }, { filled: false }, { filled: false}, { filled: false },{filled: true }],
-  [{ num: 4, direction: [{ dir: "right", len: 5, answer: "RSTUV" }], filled: false },{ filled: false }, { filled: false }, { filled: false }, { filled: false }]
+const crossGrid4 = [
+  [{ num: 1, direction: [{ dir: "right", len: 5, answer: "MOUSE" }, { dir: "down", len: 5, answer: "MERGE" }], filled: false }, { num: 5, direction: [{ dir: "down", len: 5, answer: "ENTER" }], filled: false }, { filled: false }, { num: 6, direction: [{ dir: "right", len: 3, answer: "BIN" }], filled: false }],
+  [{ num: 2, direction: [{ dir: "right", len: 4, answer: "GNOME" }], filled: false }, { filled: false }, { filled: false }, { filled: false }],
+  [{ filled: false }, { filled: false }, { filled: false }, { filled: false }],
+  [{ num: 3, direction: [{ dir: "right", len: 5, answer: "EGNAR" }], filled: false }, { filled: false }, { filled: false }, { filled: false }],
+  [{ num: 4, direction: [{ dir: "down", len: 5, answer: "SIGMA" }], filled: false }, { filled: false }, { filled: false }, { filled: false }]
 ];
-const crossGrid5=[
-  [{ num: 1, direction: [{ dir: "down", len: 5, answer: "AEJNR" }], filled: false }, { filled: true }, {num: 2, direction: [{ dir: "right", len: 3, answer: "BCD" }], filled: false}, { num: 5, direction: [{ dir: "down", len: 5, answer: "CHLPU" }], filled: false },{num: 6, direction: [{ dir: "down", len: 5, answer: "DIMQV" }], filled: false }],
-  [{num: 3, direction: [{ dir: "right", len: 5, answer: "EFGHI" }], filled: false  },{num: 4, direction: [{ dir: "right", len: 4, answer: "FGHI" },{ dir: "down", len: 4, answer: "FKOS" }], filled: false  }, { filled: false }, { filled: false }, { filled: false }],
-  [{filled: false }, { filled: false }, { filled: true}, { filled: false }, { filled: false }],
-  [{filled: false }, { filled: false }, { filled: true }, { filled: false}, { filled: false }],
-  [{num: 7, direction: [{ dir: "right", len: 5, answer: "RSTUV" }],filled: false}, { filled: false }, { filled: false }, { filled: false }, { filled: false }]
+
+const crossGrid5 = [
+  [{ num: 1, direction: [{ dir: "right", len: 4, answer: "NODE" }, { dir: "down", len: 5, answer: "NOTES" }], filled: false }, { num: 2, direction: [{ dir: "right", len: 4, answer: "TESLA" }], filled: false }, { filled: false }, { filled: false }],
+  [{ filled: false }, { filled: false }, { filled: false }, { filled: false }],
+  [{ num: 3, direction: [{ dir: "down", len: 5, answer: "OPERA" }], filled: false }, { filled: false }, { filled: false }, { filled: false }],
+  [{ num: 4, direction: [{ dir: "down", len: 5, answer: "DISKS" }], filled: false }, { filled: false }, { filled: false }, { filled: false }],
+  [{ num: 5, direction: [{ dir: "down", len: 4, answer: "TAHC" }], filled: false }, { filled: false }, { filled: false }, { filled: false }]
 ];
+
 const questions1 = {
   1: {
     right: {
