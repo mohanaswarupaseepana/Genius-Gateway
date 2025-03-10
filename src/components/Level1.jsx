@@ -230,7 +230,7 @@ const questions3 = {
   },
   4: {
     down: {
-      text: "Which Indian Prime Minister, known for his ambitious projects like Make in India and Digital India, was once a key figure in Gujarat's politics before assuming the national leadership in 2014?",
+      text: "A Great Politician, known for his ambitious projects like Make in India and Digital India.",
       hints: [{ text: "Before becoming Prime Minister, he served as the Chief Minister of Gujarat from 2001 to 2014.", used: false },
       { text: " He launched initiatives like Swachh Bharat Abhiyan, Make in India, and Digital India to modernize the country.", used: false },
       { text: "His last name is four letters long, starting with M, and he's been India’s Prime Minister since 2014.", used: false },], len: 4, hintNum: 0
@@ -1006,7 +1006,7 @@ const Level1 = ({EVENT_START_TIME,LEVEL_TIME_LIMITS}) => {
                 </div>
               )}
             </div>
-            <div className=" grid grid-cols-6 gap-2">
+            <div className=" grid grid-cols-8 gap-2">
               {Array.from({ length: Object.keys(questions).length }).map((_, index) => (
                 <button
                   key={index + 1}
@@ -1027,8 +1027,6 @@ const Level1 = ({EVENT_START_TIME,LEVEL_TIME_LIMITS}) => {
            </div>
           </div>
 }
-
-
           {/* Navigation Buttons */}
 
         </div>
@@ -1036,7 +1034,6 @@ const Level1 = ({EVENT_START_TIME,LEVEL_TIME_LIMITS}) => {
     </div>
   );
 };
-
 export default Level1;
 
 

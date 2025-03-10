@@ -23,7 +23,7 @@ import EventWaiting from './components/EventWaiting.jsx'
 import Winner from './components/Winner.jsx'
 import Completed from './components/Completed.jsx'
 import Instructions from './components/Instructions.jsx'
-const EVENT_START_TIME = new Date("2025-03-09T17:40:00");
+const EVENT_START_TIME = new Date("2025-03-09T22:05:00");
 const LEVEL_TIME_LIMITS = [15 * 60 * 1000, 30 * 60 * 1000, 15 * 60 * 1000];
 
 const App = () => {
